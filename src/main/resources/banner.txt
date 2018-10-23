@@ -1,0 +1,12 @@
+${AnsiColor.BRIGHT_BLACK}
+     __   __             _                                               __
+     LJ   LJ   _____    FJ___      ___ _    _ ___      ___ _    _    _   LJ
+      _       [__   F  J  __ `.   F __` L  J '__ J    F __` L  J |  | L  FJ
+     J J  FJ  `-.'.'/  | |--| |  | |--| |  | |__| |  | |--| |  | |  | | J  L
+     J  LJ  L .' (_(_  F L  J J  F L__J J  F L  J J  F L__J J  F L__J J J  L
+  ,-_J  |J__LJ_______LJ__L  J__LJ\____,__LJ__L  J__L )-____  L )-____  LJ__L
+  \_____/|__||_______||__L  J__| J____,__F|__L  J__|J\______/FJ\______/F|__|
+  \_____/                                            J______F  J______F
+
+${AnsiColor.BRIGHT_BLACK}
+Spring Boot Version: ${spring-boot.version}${spring-boot.formatted-version}

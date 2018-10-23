@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: admin
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/jizhangyl_actuals?useUnicode=true&useSSL=false&autoReconnect=true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+wechat:
+  notifyUrl: http://jizhangyl.natapp1.cc/jizhangyl/pay/notify
+projectUrl:
+  wechatOpenAuthorize: http://jizhangyl.natapp1.cc
+  #wechatOpenAuthorize: https://www.jizhangyl.com
+  #jizhangyl: http://jizhangyl.natapp1.cc
+  jizhangyl: http://127.0.0.1:8761
+server:
+  port: 8762

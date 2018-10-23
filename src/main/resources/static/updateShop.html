@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h1>商品新增</h1>
+
+<form method="POST" action="/jizhangyl/shop/update" enctype="multipart/form-data">
+    图片：<input type="file" name="shopImage" /><br/><br/>
+    id:<input type="text" name="id" /><br/><br/>
+    名称：<input type="text" name="shopName" /><br/><br/>
+    库存：<input type="text" name="shopCount" /><br/><br/>
+    jancode：<input type="text" name="shopJan" /><br/><br/>
+    类目编号：<input type="text" name="cateId" /><br/><br/>
+    品牌编号：<input type="text" name="brandId" /><br/><br/>
+    每箱入数：<input type="text" name="shopXcount" /><br/><br/>
+    商品规格：<input type="text" name="shopFormat" /><br/><br/>
+    是否抛货：<input type="text" name="isPaogoods" /><br/><br/>
+    净重：<input type="text" name="shopJweight" /><br/><br/>
+    打包重量：<input type="text" name="shopDweight" /><br/><br/>
+    颜色：<input type="text" name="shopColor" /><br/><br/>
+    长宽高：<input type="text" name="shopWhg" /><br/><br/>
+    体积：<input type="text" name="shopVolume" /><br/><br/>
+    供货价：<input type="text" name="shopGprice" /><br/><br/>
+    零售价：<input type="text" name="shopLprice" /><br/><br/>
+    报关价：<input type="text" name="bcPrice" /><br/><br/>
+    报关税率：<input type="text" name="bcCess" /><br/><br/>
+    税金：<input type="text" name="bcCprice" /><br/><br/>
+    文案：<input type="text" name="wenan" /><br/><br/>
+    <input type="submit" value="Submit" />
+</form>
+
+</body>
+</html>

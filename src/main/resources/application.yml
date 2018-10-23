@@ -1,0 +1,82 @@
+server:
+  context-path: /jizhangyl
+#  ssl:
+#    key-store: classpath:214912339260985.pfx
+#    key-store-password: 214912339260985
+#    key-store-type: PKCS12
+spring:
+  profiles:
+    active: dev
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 2
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 'X'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+  jpa:
+    show-sql: true
+  jackson:
+    default-property-inclusion: non_null
+  http:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  mvc:
+    view:
+      suffix: .html
+#      prefix: /
+logging:
+  level:
+    org.springframework.web: DEBUG
+    com.github.binarywang.demo.wx.pay: DEBUG
+    com.github.binarywang.wxpay: DEBUG
+wechat:
+  mpAppId: wx742c20cd02c59c8f
+  mpAppSecret: 009e388294b43ebb66e35577f46034ff
+  openAppId: wxa54528c6aebbc825
+  openAppSecret: fba84c6fb55978c2e6993c0d4d6c22c4
+  mchId: 1508808661
+  mchKey: 4JoJRXXJuPnYpu4jWvDu3dz3pNPdTbbF
+  keyPath: classpath:apiclient_cert.p12
+  expressAppId: wx0c0a9004e7068154
+  expressAppSecret: 6b65580d351481d15424714a2194a420
+addressResolve:
+  host: http://kop.kuaidihelp.com
+  path: /api
+  appId: 100771
+  apiKey: cf76cd55e9c6366bc254698ac402298caf71a0ac
+oss:
+  endpoint: http://oss-cn-shanghai.aliyuncs.com
+  accessKeyId: LTAIf69yPwnviuzw
+  accessKeySecret: nPkRJjylGuVTjXhWZ1GNCDy6EF6kq3
+  bucketName: jizhangyl
+  bucketUrl: https://jizhangyl.oss-cn-shanghai.aliyuncs.com/
+ems:
+  url: http://211.156.193.140:8000/cotrackapi/api/track/mail/
+  version: ems_track_cn_1.0
+  authenticate: shandongems_zd3fcq8jv2cvw4hsk
+login:
+  excludePrefix: /wechat;/user;/test;login_fail;
+  excludeSuffix: .js;.jpg;.png;.css;.ico;.ttf;.woff2;.gif;.map;login_fail.html;error.html;api-docs;pay/notify;/express/getOpenid;/deposit/entPay;/test/pay;
+  excludePatterns: swagger;
+sms:
+  product: Dysmsapi
+  domain: dysmsapi.aliyuncs.com
+  accessKeyId: LTAIf69yPwnviuzw
+  accessKeySecret: nPkRJjylGuVTjXhWZ1GNCDy6EF6kq3
+  signName: 飞翩国际物流
+  templateCode:
+    remainNotify: SMS_143865131
+    expressNotify: SMS_144152552
+    certRefuse: SMS_143868498
+    orderNotify: SMS_145910783
+notifyInterval: 3

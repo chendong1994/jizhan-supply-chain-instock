@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: jizhangyl1!
+    url: jdbc:mysql://rm-bp1lut9l7144s2l73xo.mysql.rds.aliyuncs.com:3306/jizhangyl_actuals?useUnicode=true&useSSL=false&autoReconnect=true
+  redis:
+    host: 39.104.90.26
+    port: 6379
+    password: Jizhangyl1qaz@WSX
+wechat:
+  notifyUrl: http://www.jizhangyl.com/jizhangyl/pay/notify
+projectUrl:
+  wechatOpenAuthorize: https://www.jizhangyl.com
+  jizhangyl: https://www.jizhangyl.com
+server:
+  port: 80
+  ssl:
+    key-store: classpath:214912339260985.pfx
+    key-store-password: 214912339260985
+    key-store-type: PKCS12
