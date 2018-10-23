@@ -1,14 +1,13 @@
 package com.jizhangyl.application.repository;
 
-import java.util.List;
-
+import com.jizhangyl.application.dataobject.Shop;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.jizhangyl.application.dataobject.Shop;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 
 /**
  * @author 杨贤达
@@ -32,8 +31,6 @@ public interface ShopRepository extends JpaRepository<Shop, Integer> {
     List<Shop> findByIdIn(List<Integer> idList);
 
     Shop findByPackCode(String packCode);
-
-    Shop findByCustomsProductId(String customsProductId);
 
     @Query(nativeQuery = true, value = "SELECT * FROM `shop` WHERE CONCAT(IFNULL(`shop_name`, '')," +
             "IFNULL(`shop_jan`, ''), IFNULL(`customs_product_id`, ''), IFNULL(`pack_code`, '')) LIKE %:param%")

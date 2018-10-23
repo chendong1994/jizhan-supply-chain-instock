@@ -141,20 +141,9 @@ public class OrderMaster2OrderForRepositoryConverter {
                     }
 
                     /**
-                     * 报关税率
-                     */
-                    BigDecimal bcCess = new BigDecimal(shop.getBcCess()).divide(new BigDecimal(100));
-
-                    /**
                      * 该件商品数量
                      */
                     BigDecimal quantity = new BigDecimal(detail.getProductQuantity());
-
-                    // 计算报关价
-                    totalBcPrice = totalBcPrice.add(shop.getBcPrice().multiply(quantity));
-
-                    // 计算报关税金
-                    totalTaxes = totalTaxes.add(shop.getBcPrice().multiply(bcCess).multiply(quantity));
 
                     // 计算打包重量
                     totalPackWeight = totalPackWeight.add(new BigDecimal(shop.getShopDweight()).multiply(quantity));
@@ -162,8 +151,6 @@ public class OrderMaster2OrderForRepositoryConverter {
                     // 计算供货价
                     totalGPrice = totalGPrice.add(shop.getShopGprice().multiply(quantity));
 
-                    // 计算关税
-                    totalDuties = totalDuties.add(shop.getBcCprice().multiply(quantity));
 
                     // 计算毛重
                     netWeight += shop.getShopJweight() * detail.getProductQuantity();
@@ -295,29 +282,15 @@ public class OrderMaster2OrderForRepositoryConverter {
                 }
                 
                 /**
-                 * 报关税率
-                 */
-                BigDecimal bcCess = new BigDecimal(shop.getBcCess()).divide(new BigDecimal(100));
-                
-                /**
                  * 该件商品数量
                  */
                 BigDecimal quantity = new BigDecimal(detail.getProductQuantity());
-                
-                // 计算报关价
-                totalBcPrice = totalBcPrice.add(shop.getBcPrice().multiply(quantity));
-                
-                // 计算报关税金
-                totalTaxes = totalTaxes.add(shop.getBcPrice().multiply(bcCess).multiply(quantity));
                 
                 // 计算打包重量
                 totalPackWeight = totalPackWeight.add(new BigDecimal(shop.getShopDweight()).multiply(quantity));
                 
                 // 计算供货价
                 totalGPrice = totalGPrice.add(shop.getShopGprice().multiply(quantity));
-                
-                // 计算关税
-                totalDuties = totalDuties.add(shop.getBcCprice().multiply(quantity));
                 
                 // 计算毛重
                 netWeight += shop.getShopJweight() * detail.getProductQuantity();

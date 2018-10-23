@@ -74,19 +74,8 @@ public class ShopDetailVO implements Serializable {
     private String shopVolume;
 
     @JsonSerialize(using = CustomPriceSerializer.class)
-    @JsonProperty("bc_price")
-    private BigDecimal bcPrice;
-
-    @JsonSerialize(using = CustomPriceSerializer.class)
     @JsonProperty("shop_lprice")
     private BigDecimal shopLprice;
-
-    @JsonProperty("bc_cess")
-    private Double bcCess;
-
-    @JsonSerialize(using = CustomPriceSerializer.class)
-    @JsonProperty("bc_cprice")
-    private BigDecimal bcCprice;
 
     private String wenan;
 
@@ -100,76 +89,20 @@ public class ShopDetailVO implements Serializable {
     private Integer shopStatus;
 
     /**
-     * 海关商品类目编号
-     */
-    @JsonProperty("customs_cate_type")
-    private String customsCateType;
-
-    /**
-     * 海关税则号列
-     */
-    @JsonProperty("customs_tariff_line")
-    private String customsTariffLine;
-
-    /**
-     * 海关商品唯一码
-     */
-    @JsonProperty("customs_product_id")
-    private String customsProductId;
-
-    /**
      * 仓库打包识别码
      */
     @JsonProperty("pack_code")
     private String packCode;
 
     /**
-     * cc税号
+     * 货物渠道
      */
-    private String taxNum;
+    @JsonProperty("product_channel")
+    private Integer productChannel;
 
     /**
-     * cc报关价
+     * 是否含有中文标签
      */
-    private String ccDeclarePrice;
-
-    /**
-     * 重量单位
-     */
-    private String weightUnit;
-
-    /**
-     * 完税价格
-     */
-    private String dutyPaying;
-
-    /**
-     * 税率
-     */
-    private String taxRate;
-
-    /**
-     * 一级类目
-     */
-    private String primaryCategory;
-
-    /**
-     * 二级类目
-     */
-    private String secondaryCategory;
-
-    /**
-     * 三级类目
-     */
-    private String thirdCategory;
-
-    /**
-     * 四级类目
-     */
-    private String fourthCategory;
-
-    /**
-     * 五级类目
-     */
-    private String fifthCategory;
+    @JsonProperty("cn_label")
+    private Integer CnLabel;
 }

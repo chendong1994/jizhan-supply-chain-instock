@@ -1,6 +1,8 @@
 package com.jizhangyl.application.dataobject;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.jizhangyl.application.enums.CnLabelEnum;
+import com.jizhangyl.application.enums.ProductChannelEnum;
 import com.jizhangyl.application.enums.ShopStatusEnum;
 import com.jizhangyl.application.utils.EnumUtil;
 import lombok.Data;
@@ -53,34 +55,7 @@ public class Shop {
 
     private BigDecimal shopLprice; // 零售价
 
-    private BigDecimal bcPrice;
-
-    private Double bcCess;
-
-    private BigDecimal bcCprice;
-
-    private String wenan;
-
-    private Date createTime;
-
-    private Date updateTime;
-
     private Integer shopStatus = ShopStatusEnum.DOWN.getCode();
-
-    /**
-     * 海关商品类目编号
-     */
-    private String customsCateType;
-
-    /**
-     * 海关税则号列
-     */
-    private String customsTariffLine;
-
-    /**
-     * 海关商品唯一码
-     */
-    private String customsProductId;
 
     /**
      * 仓库打包识别码
@@ -88,54 +63,29 @@ public class Shop {
     private String packCode;
 
     /**
-     * cc税号
+     * 货物渠道
      */
-    private String taxNum;
+    private Integer productChannel = ProductChannelEnum.DEFAULT.getCode();
 
     /**
-     * cc报关价
+     * 是否含有中文标签
      */
-    private String ccDeclarePrice;
+    private Integer CnLabel = CnLabelEnum.DEFAULT.getCode();
 
     /**
-     * 重量单位
+     * 商品文案
      */
-    private String weightUnit;
+    private String wenan;
 
     /**
-     * 完税价格
+     * 创建时间
      */
-    private String dutyPaying;
+    private Date createTime;
 
     /**
-     * cc税率
+     * 更新时间
      */
-    private String taxRate;
-
-    /**
-     * 一级类目
-     */
-    private String primaryCategory;
-
-    /**
-     * 二级类目
-     */
-    private String secondaryCategory;
-
-    /**
-     * 三级类目
-     */
-    private String thirdCategory;
-
-    /**
-     * 四级类目
-     */
-    private String fourthCategory;
-
-    /**
-     * 五级类目
-     */
-    private String fifthCategory;
+    private Date updateTime;
 
     @JsonIgnore
     public ShopStatusEnum getShopStatusEnum() {

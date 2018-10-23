@@ -250,11 +250,6 @@ public class ShopComparaotrTest {
         ShopVO s3 = new ShopVO();
         ShopVO s4 = new ShopVO();
         ShopVO s5 = new ShopVO();
-        s1.setTaxRate("NaN");
-        s2.setTaxRate("NaN");
-        s3.setTaxRate("25");
-        s4.setTaxRate("NaN");
-        s5.setTaxRate("35");
         
         shopList.add(s1);
         shopList.add(s2);
@@ -270,10 +265,6 @@ public class ShopComparaotrTest {
         ComparatorFactory<ShopVO> comparatorFactory = new ShopVOComparatorFactory();
         Comparator<ShopVO> shopComparator = comparatorFactory.createComparator(se, os);
         Collections.sort(shopList, shopComparator);
-        
-        for (ShopVO shopVO : shopList) {
-            System.out.println(shopVO.getTaxRate());
-        }
     }
     
     /**

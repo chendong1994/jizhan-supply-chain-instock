@@ -38,10 +38,4 @@ public class CartVO implements Serializable {
     private BigDecimal shopGprice;
 
     private BigDecimal shopLprice;
-
-    private BigDecimal bcPrice;
-
-    private Double bcCess;
-
-    private BigDecimal bcCprice;
 }

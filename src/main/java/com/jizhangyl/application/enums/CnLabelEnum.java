@@ -1,27 +1,26 @@
 package com.jizhangyl.application.enums;
 
-import com.jizhangyl.application.utils.EnumUtil;
 import lombok.Getter;
 
 /**
  * @author 杨贤达
- * @date 2018/8/16 12:59
+ * @date 2018/10/23 11:11
  * @description
  */
 @Getter
-public enum ShopStatusEnum implements CodeEnum {
-    UP(0, "上架"),
-    DOWN(1, "下架"),
+public enum CnLabelEnum {
+    DEFAULT(0, "没有"),
+    EXISTED(1, "有"),
     ;
 
     private Integer code;
 
     private String msg;
 
-    ShopStatusEnum() {
+    CnLabelEnum() {
     }
 
-    ShopStatusEnum(Integer code, String msg) {
+    CnLabelEnum(Integer code, String msg) {
         this.code = code;
         this.msg = msg;
     }

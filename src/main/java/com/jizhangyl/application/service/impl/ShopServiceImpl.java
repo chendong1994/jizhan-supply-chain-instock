@@ -1,20 +1,5 @@
 package com.jizhangyl.application.service.impl;
 
-import java.util.Date;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.stream.Collectors;
-
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
-
 import com.jizhangyl.application.VO.ShopDetailVO;
 import com.jizhangyl.application.VO.ShopVO;
 import com.jizhangyl.application.converter.Shop2ShopVOConverter;
@@ -35,8 +20,21 @@ import com.jizhangyl.application.service.BrandService;
 import com.jizhangyl.application.service.CateService;
 import com.jizhangyl.application.service.ShopService;
 import com.jizhangyl.application.utils.FileUploadUtil;
-
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
+
+import java.util.Date;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.stream.Collectors;
 
 /**
  * @author 杨贤达
@@ -360,11 +358,6 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public Shop findByPackCode(String packCode) {
         return repository.findByPackCode(packCode);
-    }
-
-    @Override
-    public Shop findByCustomsProductId(String customsProductId) {
-        return repository.findByCustomsProductId(customsProductId);
     }
 
     @Override

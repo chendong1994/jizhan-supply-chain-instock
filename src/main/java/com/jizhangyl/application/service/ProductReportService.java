@@ -241,16 +241,9 @@ public class ProductReportService {
                 row.createCell(13).setCellValue(shopDto.getShopVolume());
                 row.createCell(14).setCellValue(shopDto.getShopGprice().toString());
                 row.createCell(15).setCellValue(shopDto.getShopLprice().toString());
-                row.createCell(16).setCellValue(shopDto.getBcPrice().toString());
-                row.createCell(17).setCellValue(shopDto.getBcCess());
-                row.createCell(18).setCellValue(shopDto.getBcCprice().toString());
-                row.createCell(19).setCellValue(shopDto.getWenan());
-
-                row.createCell(20).setCellValue(shopDto.getShopStatus());
-                row.createCell(21).setCellValue(shopDto.getCustomsCateType());
-                row.createCell(22).setCellValue(shopDto.getCustomsTariffLine());
-                row.createCell(23).setCellValue(shopDto.getCustomsProductId());
-                row.createCell(24).setCellValue(shopDto.getPackCode());
+                row.createCell(16).setCellValue(shopDto.getWenan());
+                row.createCell(17).setCellValue(shopDto.getShopStatus());
+                row.createCell(18).setCellValue(shopDto.getPackCode());
 
             }
 
@@ -400,18 +393,18 @@ public class ProductReportService {
                                         break;
                                     case 16:
                                         if (!org.apache.commons.lang3.StringUtils.isEmpty(cellValue)) {
-                                            shopDto.setBcPrice(new BigDecimal(cellValue));
+//                                            shopDto.setBcPrice(new BigDecimal(cellValue));
                                         }
                                         break;
                                     // 商品七的 orderDetail
                                     case 17:
                                         if (!org.apache.commons.lang3.StringUtils.isEmpty(cellValue)) {
-                                            shopDto.setBcCess(Double.parseDouble(cellValue));
+//                                            shopDto.setBcCess(Double.parseDouble(cellValue));
                                         }
                                         break;
                                     case 18:
                                         if (!org.apache.commons.lang3.StringUtils.isEmpty(cellValue)) {
-                                            shopDto.setBcCprice(new BigDecimal(cellValue));
+//                                            shopDto.setBcCprice(new BigDecimal(cellValue));
                                         }
                                         break;
                                     // 商品八的 orderDetail
@@ -452,14 +445,14 @@ public class ProductReportService {
                                         shopDto.setShopLprice(new BigDecimal(cellValue));
                                         break;
                                     case 16:
-                                        shopDto.setBcPrice(new BigDecimal(cellValue));
+//                                        shopDto.setBcPrice(new BigDecimal(cellValue));
                                         break;
                                     // 商品七的 orderDetail
                                     case 17:
-                                        shopDto.setBcCess(cellValue);
+//                                        shopDto.setBcCess(cellValue);
                                         break;
                                     case 18:
-                                        shopDto.setBcCprice(new BigDecimal(cellValue));
+//                                        shopDto.setBcCprice(new BigDecimal(cellValue));
                                         break;
 //                                    case 0:
 //                                        Double cellValue = cell.getNumericCellValue();

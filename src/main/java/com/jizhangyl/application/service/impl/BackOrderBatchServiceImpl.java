@@ -1,39 +1,5 @@
 package com.jizhangyl.application.service.impl;
 
-import java.io.ByteArrayOutputStream;
-import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.hpsf.DocumentSummaryInformation;
-import org.apache.poi.hpsf.SummaryInformation;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
-import org.apache.poi.hssf.usermodel.HSSFDataFormat;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.FillPatternType;
-import org.apache.poi.ss.usermodel.IndexedColors;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.CollectionUtils;
-
 import com.alibaba.fastjson.JSONObject;
 import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
 import com.github.binarywang.wxpay.bean.notify.WxPayOrderNotifyResult;
@@ -77,8 +43,39 @@ import com.jizhangyl.application.utils.MathUtil;
 import com.jizhangyl.application.utils.PayUtil;
 import com.jizhangyl.application.utils.PriceUtil;
 import com.jizhangyl.application.utils.SmsUtil;
-
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.hpsf.DocumentSummaryInformation;
+import org.apache.poi.hpsf.SummaryInformation;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFDataFormat;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.ByteArrayOutputStream;
+import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -369,8 +366,6 @@ public class BackOrderBatchServiceImpl implements BackOrderBatchService{
 						 BigDecimal productPrice = shop.getShopGprice();
 						 // 供货价
 						 BigDecimal gPrice = shop.getShopGprice();
-						 // 报关税率
-						 Double bcCess = shop.getBcCess();
 						 
 						 double packWeight = ((double) (shop.getShopDweight())) / 1000;
 						 
@@ -387,13 +382,7 @@ public class BackOrderBatchServiceImpl implements BackOrderBatchService{
 						 
 						 // 计算总货值
 						 orderCost = productPrice.multiply(bdProductQuantity).add(orderCost);
-						 // 1件商品的税金 （供货价 * 报关税率）
-						 BigDecimal oneTaxes = gPrice.multiply(new BigDecimal(bcCess).divide(new BigDecimal(100)));
-						 
-						 // 计算订单详情的总税金：报关售价 * 报关税率 * 商品数量
-						 BigDecimal detailTaxes = oneTaxes.multiply(bdProductQuantity);
-						 orderTaxes = detailTaxes.add(orderTaxes);
-						 
+
 						 // 计算总打包重量
 						 orderPackWeight = new BigDecimal(packWeight).multiply(bdProductQuantity).add(orderPackWeight);
 					 }

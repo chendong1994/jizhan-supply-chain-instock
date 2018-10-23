@@ -62,8 +62,6 @@ public interface ShopService {
 
     Shop findByPackCode(String packCode);
 
-    Shop findByCustomsProductId(String customsProductId);
-
     List<Shop> findByCriteria(String param);
 
     void productDataSync();

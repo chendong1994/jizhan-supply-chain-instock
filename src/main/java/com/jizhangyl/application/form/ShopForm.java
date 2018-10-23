@@ -3,12 +3,9 @@ package com.jizhangyl.application.form;
 import com.jizhangyl.application.validator.IsPaoGoods;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import java.math.BigDecimal;
-import java.util.Date;
 
 /**
  * @author 杨贤达
@@ -70,30 +67,7 @@ public class ShopForm {
     @NotNull(message = "零售价不能为空")
     private BigDecimal shopLprice;
 
-    @NotNull(message = "报关价不能为空")
-    private BigDecimal bcPrice;
-
-    @NotNull(message = "报关税率不能为空")
-    private Double bcCess;
-
-    private BigDecimal bcCprice;
-
     private String wenan;
-
-    /**
-     * 海关商品类目编号
-     */
-    private String customsCateType;
-
-    /**
-     * 海关税则号列
-     */
-    private String customsTariffLine;
-
-    /**
-     * 海关商品唯一码
-     */
-    private String customsProductId;
 
     /**
      * 仓库打包识别码
@@ -102,52 +76,12 @@ public class ShopForm {
     private String packCode;
 
     /**
-     * cc税号
+     * 货物渠道
      */
-    private String taxNum;
+    private Integer productChannel;
 
     /**
-     * cc报关价
+     * 是否含有中文标签
      */
-    private String ccDeclarePrice;
-
-    /**
-     * 重量单位
-     */
-    private String weightUnit;
-
-    /**
-     * 完税价格
-     */
-    private String dutyPaying;
-
-    /**
-     * 税率
-     */
-    private String taxRate;
-
-    /**
-     * 一级类目
-     */
-    private String primaryCategory;
-
-    /**
-     * 二级类目
-     */
-    private String secondaryCategory;
-
-    /**
-     * 三级类目
-     */
-    private String thirdCategory;
-
-    /**
-     * 四级类目
-     */
-    private String fourthCategory;
-
-    /**
-     * 五级类目
-     */
-    private String fifthCategory;
+    private Integer CnLabel;
 }

@@ -207,12 +207,9 @@ public class OrderMasterServiceImpl implements OrderMasterService {
                 }
                 // 商品供货价
                 BigDecimal productPrice = shop.getShopGprice();
-                // 报关售价
-                BigDecimal bcPrice = shop.getBcPrice();
+
                 // 供货价
                 BigDecimal gPrice = shop.getShopGprice();
-                // 报关税率
-                Double bcCess = shop.getBcCess();
 
                 double netWeight = ((double) (shop.getShopJweight())) / 1000;
                 double packWeight = ((double) (shop.getShopDweight())) / 1000;
@@ -241,12 +238,6 @@ public class OrderMasterServiceImpl implements OrderMasterService {
 
                 // 计算总货值
                 orderCost = productPrice.multiply(bdProductQuantity).add(orderCost);
-                // 1件商品的税金 （供货价 * 报关税率）
-                BigDecimal oneTaxes = gPrice.multiply(new BigDecimal(bcCess).divide(new BigDecimal(100)));
-
-                // 计算订单详情的总税金：报关售价 * 报关税率 * 商品数量
-                BigDecimal detailTaxes = oneTaxes.multiply(bdProductQuantity);
-                orderTaxes = detailTaxes.add(orderTaxes);
 
                 // 计算总净重
                 orderNetWeight = new BigDecimal(netWeight).multiply(bdProductQuantity).add(orderNetWeight);
@@ -260,9 +251,6 @@ public class OrderMasterServiceImpl implements OrderMasterService {
 
                 // 设置订单详情页商品图片
                 orderDetail.setProductIcon(shop.getShopImage());
-
-                // 设置订单详情的税金
-                orderDetail.setDetailTaxes(detailTaxes);
 
                 orderDetailList.add(orderDetail);
             }
@@ -466,17 +454,10 @@ public class OrderMasterServiceImpl implements OrderMasterService {
 
                     // 供货价
                     BigDecimal gPrice = shop.getShopGprice();
-                    // 报关价格
-                    BigDecimal bcPrice = shop.getBcPrice();
-                    // 报关税率
-                    BigDecimal bcCess = new BigDecimal(shop.getBcCess()).divide(new BigDecimal(100));
 
                     // 商品数量
                     BigDecimal quantity = new BigDecimal(ele.getProductQuantity());
                     // 设置订单详情的税金
-//                    BigDecimal detailTaxes = gPrice.multiply(bcCess).multiply(quantity);
-                    BigDecimal detailTaxes = gPrice.multiply(bcCess);
-                    ele.setDetailTaxes(detailTaxes);
                     return ele;
                 }).collect(Collectors.toList());
                 orderDto.setOrderDetailList(orderDetailList);

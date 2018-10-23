@@ -57,16 +57,6 @@ public class ShopVO implements Serializable {
 
     @JsonProperty("cate_name")
     private String cateName;
-
-    @JsonSerialize(using = CustomPriceSerializer.class)
-    @JsonProperty("bc_cprice")
-    private BigDecimal bcCprice;
-
-    /**
-     * cc税率
-     */
-    @JsonProperty("tax_rate")
-    private String taxRate;
     
     @JsonProperty("shop_status")
     private Integer shopStatus;
@@ -79,6 +69,18 @@ public class ShopVO implements Serializable {
 
     @JsonProperty("last_month_sales_num")
     private BigDecimal lastMonthSalesNum; // 过去30天的平均销量
+
+    /**
+     * 货物渠道
+     */
+    @JsonProperty("product_channel")
+    private Integer productChannel;
+
+    /**
+     * 是否含有中文标签
+     */
+    @JsonProperty("cn_label")
+    private Integer CnLabel;
 
     public ShopVO addPropName(String brandName, String cateName) {
         this.brandName = brandName;

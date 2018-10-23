@@ -4,7 +4,6 @@ import java.util.Comparator;
 import java.util.Objects;
 
 import com.jizhangyl.application.VO.ShopVO;
-import com.jizhangyl.application.comparator.shop.CcTaxRateComparator;
 import com.jizhangyl.application.comparator.shop.DefaultComparator;
 import com.jizhangyl.application.comparator.shop.LastMonthSalesNumComparator;
 import com.jizhangyl.application.comparator.shop.LastWeekSalesNumComparator;
@@ -49,7 +48,7 @@ public class ShopVOComparatorFactory extends ComparatorFactory<ShopVO> {
         case SHOP_DWEIGHT: // 6.商品打包重量
             return new ShopDWeightComparator(orderSortEnum);
         case CC_CESS: // 7.CC税率
-            return new CcTaxRateComparator(orderSortEnum);
+//            return new CcTaxRateComparator(orderSortEnum);
         case RETAIL_PRICE: // 8.商品零售价
             return new ShopLPriceComparator(orderSortEnum);
         case YEST_SALESNUM: // 9.昨日销量

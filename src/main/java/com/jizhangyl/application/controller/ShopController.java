@@ -269,12 +269,6 @@ public class ShopController {
 
             // 供货价
             BigDecimal gPrice = shop.getShopGprice();
-            // 报关税率
-            BigDecimal bcCess = new BigDecimal(shop.getBcCess()).divide(new BigDecimal(100));
-            // 计算税金 = 供货价 * 报关税率
-            BigDecimal taxes = gPrice.multiply(bcCess);
-
-            shop.setBcCprice(taxes);
             // 默认下架
             shop.setShopStatus(ShopStatusEnum.DOWN.getCode());
 
@@ -364,12 +358,7 @@ public class ShopController {
 
             // 供货价
             BigDecimal shopGprice = shop.getShopGprice();
-            // 报关税率
-            BigDecimal bcCess = new BigDecimal(shop.getBcCess()).divide(new BigDecimal(100));
-            // 计算税金（税金 = 供货价 * 税率）
-            BigDecimal taxes = shopGprice.multiply(bcCess);
 
-            shop.setBcCprice(taxes);
             // 设置上下架状态为修改前状态
             shop.setShopStatus(shopStatus);
 
