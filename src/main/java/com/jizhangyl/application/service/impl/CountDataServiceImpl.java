@@ -18,19 +18,19 @@ import com.jizhangyl.application.enums.ResultEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jizhangyl.application.dataobject.OrderDetail;
-import com.jizhangyl.application.dataobject.OrderMaster;
-import com.jizhangyl.application.dataobject.Shop;
-import com.jizhangyl.application.dataobject.Wxuser;
+import com.jizhangyl.application.dataobject.primary.OrderDetail;
+import com.jizhangyl.application.dataobject.primary.OrderMaster;
+import com.jizhangyl.application.dataobject.primary.Shop;
+import com.jizhangyl.application.dataobject.secondary.Wxuser;
 import com.jizhangyl.application.dto.AllDataDTO;
 import com.jizhangyl.application.dto.BuyerSalesDTO;
 import com.jizhangyl.application.dto.ShopSalesDTO;
 import com.jizhangyl.application.enums.OrderStatusEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.OrderDetailRepository;
-import com.jizhangyl.application.repository.OrderMasterRepository;
-import com.jizhangyl.application.repository.ShopRepository;
-import com.jizhangyl.application.repository.WxuserRepository;
+import com.jizhangyl.application.repository.primary.OrderDetailRepository;
+import com.jizhangyl.application.repository.primary.OrderMasterRepository;
+import com.jizhangyl.application.repository.primary.ShopRepository;
+import com.jizhangyl.application.repository.secondary.WxuserRepository;
 import com.jizhangyl.application.service.CountDataService;
 
 import lombok.extern.slf4j.Slf4j;

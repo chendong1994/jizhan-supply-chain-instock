@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jizhangyl.application.dataobject.SysUserRole;
-import com.jizhangyl.application.repository.SysUserRoleRepository;
+import com.jizhangyl.application.dataobject.primary.SysUserRole;
+import com.jizhangyl.application.repository.primary.SysUserRoleRepository;
 import com.jizhangyl.application.service.SysUserRoleService;
 
 /**

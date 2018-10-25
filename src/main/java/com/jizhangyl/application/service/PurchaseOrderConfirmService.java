@@ -1,6 +1,6 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.PurchaseOrderConfirm;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderConfirm;
 
 import java.util.List;
 

@@ -18,7 +18,7 @@ import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.SessionCallback;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
-import com.jizhangyl.application.dataobject.UserInfo;
+import com.jizhangyl.application.dataobject.secondary.UserInfo;
 import com.jizhangyl.application.enums.ShiroEnum;
 import com.jizhangyl.application.service.UserInfoService;
 

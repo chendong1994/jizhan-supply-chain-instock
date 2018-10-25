@@ -6,8 +6,8 @@ import java.util.Map;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.jizhangyl.application.dataobject.Flight;
-import com.jizhangyl.application.dataobject.FlightPackag;
+import com.jizhangyl.application.dataobject.primary.Flight;
+import com.jizhangyl.application.dataobject.primary.FlightPackag;
 import com.jizhangyl.application.dto.FlightDto;
 import com.jizhangyl.application.dto.FlightUnfinishedDto;
 

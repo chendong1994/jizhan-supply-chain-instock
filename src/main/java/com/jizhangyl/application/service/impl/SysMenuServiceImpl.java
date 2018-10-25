@@ -15,11 +15,11 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jizhangyl.application.dataobject.SysMenu;
+import com.jizhangyl.application.dataobject.primary.SysMenu;
 import com.jizhangyl.application.dto.SysMenuDTO;
 import com.jizhangyl.application.enums.MenuEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.SysMenuRepository;
+import com.jizhangyl.application.repository.primary.SysMenuRepository;
 import com.jizhangyl.application.service.SysMenuService;
 
 import lombok.extern.slf4j.Slf4j;

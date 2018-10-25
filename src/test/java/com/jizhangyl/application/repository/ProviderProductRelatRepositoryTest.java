@@ -1,7 +1,8 @@
 package com.jizhangyl.application.repository;
 
 import com.jizhangyl.application.MainApplicationTests;
-import com.jizhangyl.application.dataobject.ProviderProductRelat;
+import com.jizhangyl.application.dataobject.primary.ProviderProductRelat;
+import com.jizhangyl.application.repository.primary.ProviderProductRelatRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

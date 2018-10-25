@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.jizhangyl.application.MainApplicationTests;
-import com.jizhangyl.application.dataobject.OrderMaster;
-import com.jizhangyl.application.repository.OrderMasterRepository;
+import com.jizhangyl.application.dataobject.primary.OrderMaster;
+import com.jizhangyl.application.repository.primary.OrderMasterRepository;
 
 @Component
 public class OrderMasterRepositoryTest extends MainApplicationTests {

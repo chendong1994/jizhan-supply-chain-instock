@@ -1,7 +1,7 @@
 package com.jizhangyl.application.service;
 
 
-import com.jizhangyl.application.dataobject.ProductProvider;
+import com.jizhangyl.application.dataobject.primary.ProductProvider;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

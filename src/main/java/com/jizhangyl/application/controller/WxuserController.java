@@ -2,7 +2,7 @@ package com.jizhangyl.application.controller;
 
 import com.jizhangyl.application.VO.ResultVO;
 import com.jizhangyl.application.VO.WxuserVO;
-import com.jizhangyl.application.dataobject.Wxuser;
+import com.jizhangyl.application.dataobject.secondary.Wxuser;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
 import com.jizhangyl.application.service.WxuserService;

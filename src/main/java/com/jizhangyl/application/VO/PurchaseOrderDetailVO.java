@@ -1,6 +1,6 @@
 package com.jizhangyl.application.VO;
 
-import com.jizhangyl.application.dataobject.PurchaseOrderDetail;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderDetail;
 import lombok.Data;
 
 /**

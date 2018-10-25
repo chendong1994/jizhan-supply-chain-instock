@@ -1,23 +1,23 @@
 package com.jizhangyl.application.service.impl;
 
 import com.jizhangyl.application.converter.OrderMaster2OrderDtoConverter;
-import com.jizhangyl.application.dataobject.ExpressNumJp;
-import com.jizhangyl.application.dataobject.OrderDetail;
-import com.jizhangyl.application.dataobject.OrderMaster;
-import com.jizhangyl.application.dataobject.Shop;
-import com.jizhangyl.application.dataobject.Wxuser;
-import com.jizhangyl.application.dataobject.WxuserAddr;
-import com.jizhangyl.application.dataobject.WxuserSender;
+import com.jizhangyl.application.dataobject.primary.ExpressNumYto;
+import com.jizhangyl.application.dataobject.primary.OrderDetail;
+import com.jizhangyl.application.dataobject.primary.OrderMaster;
+import com.jizhangyl.application.dataobject.primary.Shop;
+import com.jizhangyl.application.dataobject.secondary.Wxuser;
+import com.jizhangyl.application.dataobject.primary.WxuserAddr;
+import com.jizhangyl.application.dataobject.primary.WxuserSender;
 import com.jizhangyl.application.dto.OrderDto;
 import com.jizhangyl.application.enums.OrderStatusEnum;
 import com.jizhangyl.application.enums.PayStatusEnum;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.OrderDetailRepository;
-import com.jizhangyl.application.repository.OrderMasterRepository;
+import com.jizhangyl.application.repository.primary.OrderDetailRepository;
+import com.jizhangyl.application.repository.primary.OrderMasterRepository;
 import com.jizhangyl.application.service.CartService;
 import com.jizhangyl.application.service.ExpenseCalendarService;
-import com.jizhangyl.application.service.ExpressNumJpService;
+import com.jizhangyl.application.service.ExpressNumYtoService;
 import com.jizhangyl.application.service.OrderMasterService;
 import com.jizhangyl.application.service.PayService;
 import com.jizhangyl.application.service.RedisLock;
@@ -86,7 +86,7 @@ public class OrderMasterServiceImpl implements OrderMasterService {
     private PayService payService;
 
     @Autowired
-    private ExpressNumJpService expressNumJpService;
+    private ExpressNumYtoService expressNumYtoService;
 
     @Autowired
     private ExpenseCalendarService expenseCalendarService;
@@ -569,16 +569,16 @@ public class OrderMasterServiceImpl implements OrderMasterService {
 
         // 4. 归还物流单号
         String expNum = orderDto.getExpressNumber();
-        ExpressNumJp expressNumJp = expressNumJpService.findByExpNum(expNum);
-        if (expressNumJp != null) {
+        ExpressNumYto expressNumYto = expressNumYtoService.findByExpNum(expNum);
+        if (expressNumYto != null) {
             // 此步实现单号排序，先将该条单号记录删除，然后新增到最后一条
             // 删除该单号的记录
-            expressNumJpService.delete(expressNumJp.getId());
+            expressNumYtoService.delete(expressNumYto.getId());
 
             // 插入到最后一条记录
-            ExpressNumJp record = new ExpressNumJp();
-            record.setExpNum(expressNumJp.getExpNum());
-            expressNumJpService.save(record);
+            ExpressNumYto record = new ExpressNumYto();
+            record.setExpNum(expressNumYto.getExpNum());
+            expressNumYtoService.save(record);
         }
 
         // 6. 如果已支付，需要退款

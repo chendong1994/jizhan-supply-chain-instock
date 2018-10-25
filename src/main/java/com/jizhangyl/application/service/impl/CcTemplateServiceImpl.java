@@ -1,7 +1,7 @@
 package com.jizhangyl.application.service.impl;
 
-import com.jizhangyl.application.dataobject.CcTemplate;
-import com.jizhangyl.application.repository.CcTemplateRepository;
+import com.jizhangyl.application.dataobject.primary.CcTemplate;
+import com.jizhangyl.application.repository.primary.CcTemplateRepository;
 import com.jizhangyl.application.service.CcTemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;

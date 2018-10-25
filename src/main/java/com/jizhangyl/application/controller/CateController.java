@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jizhangyl.application.VO.CateVO;
 import com.jizhangyl.application.VO.ResultVO;
-import com.jizhangyl.application.dataobject.Cate;
+import com.jizhangyl.application.dataobject.primary.Cate;
 import com.jizhangyl.application.exception.GlobalException;
 import com.jizhangyl.application.form.CateForm;
 import com.jizhangyl.application.service.CateService;

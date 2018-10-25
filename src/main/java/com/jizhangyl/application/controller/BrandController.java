@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jizhangyl.application.VO.ResultVO;
-import com.jizhangyl.application.dataobject.Brand;
+import com.jizhangyl.application.dataobject.primary.Brand;
 import com.jizhangyl.application.exception.GlobalException;
 import com.jizhangyl.application.form.BrandForm;
 import com.jizhangyl.application.service.BrandService;

@@ -1,13 +1,11 @@
 package com.jizhangyl.application.converter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.jizhangyl.application.dataobject.OrderDetail;
+import com.jizhangyl.application.dataobject.primary.OrderDetail;
 import com.jizhangyl.application.dto.OrderDto;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;

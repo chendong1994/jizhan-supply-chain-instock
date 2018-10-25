@@ -1,6 +1,6 @@
 package com.jizhangyl.application.converter;
 
-import com.jizhangyl.application.dataobject.PurchaseOrderMaster;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderMaster;
 import com.jizhangyl.application.dto.PurchaseOrderDto;
 import org.springframework.beans.BeanUtils;
 

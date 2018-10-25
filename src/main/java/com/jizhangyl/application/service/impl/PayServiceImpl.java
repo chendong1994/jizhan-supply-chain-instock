@@ -8,14 +8,14 @@ import com.github.binarywang.wxpay.bean.result.WxPayRefundResult;
 import com.github.binarywang.wxpay.constant.WxPayConstants;
 import com.github.binarywang.wxpay.exception.WxPayException;
 import com.github.binarywang.wxpay.service.WxPayService;
-import com.jizhangyl.application.dataobject.ExpressNumJp;
-import com.jizhangyl.application.dataobject.OrderMaster;
+import com.jizhangyl.application.dataobject.primary.ExpressNumYto;
+import com.jizhangyl.application.dataobject.primary.OrderMaster;
 import com.jizhangyl.application.dto.OrderDto;
 import com.jizhangyl.application.enums.ExpressNumStatusEnum;
 import com.jizhangyl.application.enums.PayTypeEnum;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.service.ExpressNumJpService;
+import com.jizhangyl.application.service.ExpressNumYtoService;
 import com.jizhangyl.application.service.OrderMasterService;
 import com.jizhangyl.application.service.PayService;
 import com.jizhangyl.application.utils.IpUtil;
@@ -49,7 +49,7 @@ public class PayServiceImpl implements PayService {
     private OrderMasterService orderService;
 
     @Autowired
-    private ExpressNumJpService expressNumJpService;
+    private ExpressNumYtoService expressNumYtoService;
 
     @Autowired
     private SmsUtil smsUtil;
@@ -116,7 +116,7 @@ public class PayServiceImpl implements PayService {
             orderService.paid(orderDto);
 
             // 生成物流单号
-            ExpressNumJp unusedNum = expressNumJpService.findUnused();
+            ExpressNumYto unusedNum = expressNumYtoService.findUnused();
             orderDto.setExpressNumber(unusedNum.getExpNum());
 
             // 保存单号至订单主表
@@ -125,7 +125,7 @@ public class PayServiceImpl implements PayService {
             orderService.save(orderMaster);
 
             // 单号标记为已经使用
-            expressNumJpService.updateStatus(unusedNum.getId(), ExpressNumStatusEnum.USED.getCode());
+            expressNumYtoService.updateStatus(unusedNum.getId(), ExpressNumStatusEnum.USED.getCode());
 
             try {
                 // 触发短信通知买家查询物流

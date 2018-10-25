@@ -1,9 +1,9 @@
 package com.jizhangyl.application.repository;
 
 import com.jizhangyl.application.MainApplicationTests;
-import com.jizhangyl.application.VO.WxuserAddrVO;
-import com.jizhangyl.application.dataobject.WxuserAddr;
+import com.jizhangyl.application.dataobject.primary.WxuserAddr;
 import com.jizhangyl.application.enums.AddrTypeEnum;
+import com.jizhangyl.application.repository.primary.WxuserAddrRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +13,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * @author 杨贤达

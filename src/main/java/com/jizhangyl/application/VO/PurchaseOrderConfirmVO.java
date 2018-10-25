@@ -1,6 +1,6 @@
 package com.jizhangyl.application.VO;
 
-import com.jizhangyl.application.dataobject.PurchaseOrderConfirm;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderConfirm;
 import lombok.Data;
 
 import java.util.List;

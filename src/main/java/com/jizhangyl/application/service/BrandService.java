@@ -1,7 +1,6 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.Brand;
-import com.jizhangyl.application.dataobject.Cate;
+import com.jizhangyl.application.dataobject.primary.Brand;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.druid.util.StringUtils;
-import com.jizhangyl.application.dataobject.NotifyLog;
+import com.jizhangyl.application.dataobject.primary.NotifyLog;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.NotifyLogRepository;
+import com.jizhangyl.application.repository.primary.NotifyLogRepository;
 import com.jizhangyl.application.service.NotifyLogService;
 
 import lombok.extern.slf4j.Slf4j;

@@ -1,6 +1,6 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.PurchaseOrderPay;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderPay;
 
 import java.util.List;
 

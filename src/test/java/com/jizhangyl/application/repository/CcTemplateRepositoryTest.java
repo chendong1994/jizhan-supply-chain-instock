@@ -1,7 +1,8 @@
 package com.jizhangyl.application.repository;
 
 import com.jizhangyl.application.MainApplicationTests;
-import com.jizhangyl.application.dataobject.CcTemplate;
+import com.jizhangyl.application.dataobject.primary.CcTemplate;
+import com.jizhangyl.application.repository.primary.CcTemplateRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;

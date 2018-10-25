@@ -1,6 +1,6 @@
 package com.jizhangyl.application.converter;
 
-import com.jizhangyl.application.dataobject.OrderMaster;
+import com.jizhangyl.application.dataobject.primary.OrderMaster;
 import com.jizhangyl.application.dto.OrderDto;
 import org.springframework.beans.BeanUtils;
 

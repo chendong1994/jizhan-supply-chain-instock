@@ -2,7 +2,7 @@ package com.jizhangyl.application.converter;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.jizhangyl.application.dataobject.PurchaseOrderDetail;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderDetail;
 import com.jizhangyl.application.dto.PurchaseOrderDto;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;

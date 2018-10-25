@@ -1,7 +1,7 @@
 package com.jizhangyl.application.service.impl;
 
-import com.jizhangyl.application.dataobject.VerifyCert;
-import com.jizhangyl.application.repository.VerifyCertRepository;
+import com.jizhangyl.application.dataobject.primary.VerifyCert;
+import com.jizhangyl.application.repository.primary.VerifyCertRepository;
 import com.jizhangyl.application.service.VerifyCertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

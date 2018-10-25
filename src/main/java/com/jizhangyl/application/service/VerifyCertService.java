@@ -1,6 +1,6 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.VerifyCert;
+import com.jizhangyl.application.dataobject.primary.VerifyCert;
 
 import java.util.List;
 

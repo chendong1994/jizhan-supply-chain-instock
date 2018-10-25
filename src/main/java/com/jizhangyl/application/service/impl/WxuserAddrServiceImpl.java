@@ -1,11 +1,11 @@
 package com.jizhangyl.application.service.impl;
 
-import com.jizhangyl.application.dataobject.WxuserAddr;
+import com.jizhangyl.application.dataobject.primary.WxuserAddr;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
 import com.jizhangyl.application.form.WxuserAddrForm;
 import com.jizhangyl.application.form.WxuserAddrUpdateForm;
-import com.jizhangyl.application.repository.WxuserAddrRepository;
+import com.jizhangyl.application.repository.primary.WxuserAddrRepository;
 import com.jizhangyl.application.service.WxuserAddrService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;

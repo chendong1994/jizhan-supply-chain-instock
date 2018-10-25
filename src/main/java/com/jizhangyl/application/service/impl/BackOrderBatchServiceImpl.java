@@ -12,27 +12,27 @@ import com.jizhangyl.application.VO.ShopExportVo;
 import com.jizhangyl.application.config.WechatAccountConfig;
 import com.jizhangyl.application.converter.OrderMaster2OrderDtoConverter;
 import com.jizhangyl.application.converter.OrderMaster2OrderExportConverter;
-import com.jizhangyl.application.dataobject.ExpressNumJp;
-import com.jizhangyl.application.dataobject.OrderBatch;
-import com.jizhangyl.application.dataobject.OrderBatchRelation;
-import com.jizhangyl.application.dataobject.OrderDetail;
-import com.jizhangyl.application.dataobject.OrderExport;
-import com.jizhangyl.application.dataobject.OrderMaster;
-import com.jizhangyl.application.dataobject.Shop;
-import com.jizhangyl.application.dataobject.Wxuser;
-import com.jizhangyl.application.dataobject.WxuserAddr;
+import com.jizhangyl.application.dataobject.primary.ExpressNumYto;
+import com.jizhangyl.application.dataobject.primary.OrderBatch;
+import com.jizhangyl.application.dataobject.primary.OrderBatchRelation;
+import com.jizhangyl.application.dataobject.primary.OrderDetail;
+import com.jizhangyl.application.dataobject.primary.OrderExport;
+import com.jizhangyl.application.dataobject.primary.OrderMaster;
+import com.jizhangyl.application.dataobject.primary.Shop;
+import com.jizhangyl.application.dataobject.secondary.Wxuser;
+import com.jizhangyl.application.dataobject.primary.WxuserAddr;
 import com.jizhangyl.application.dto.OrderDto;
 import com.jizhangyl.application.enums.ExpressNumStatusEnum;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.OrderBatchRelationRepository;
-import com.jizhangyl.application.repository.OrderBatchRepository;
-import com.jizhangyl.application.repository.OrderMasterRepository;
-import com.jizhangyl.application.repository.WxuserAddrRepository;
-import com.jizhangyl.application.repository.WxuserRepository;
+import com.jizhangyl.application.repository.primary.OrderBatchRelationRepository;
+import com.jizhangyl.application.repository.primary.OrderBatchRepository;
+import com.jizhangyl.application.repository.primary.OrderMasterRepository;
+import com.jizhangyl.application.repository.primary.WxuserAddrRepository;
+import com.jizhangyl.application.repository.secondary.WxuserRepository;
 import com.jizhangyl.application.service.AddressResolveService;
 import com.jizhangyl.application.service.BackOrderBatchService;
-import com.jizhangyl.application.service.ExpressNumJpService;
+import com.jizhangyl.application.service.ExpressNumYtoService;
 import com.jizhangyl.application.service.OrderMasterService;
 import com.jizhangyl.application.service.ShopService;
 import com.jizhangyl.application.service.WxuserAddrService;
@@ -90,7 +90,7 @@ public class BackOrderBatchServiceImpl implements BackOrderBatchService{
 	@Autowired
     private OrderMasterRepository orderMasterRepository;
     @Autowired
-    private ExpressNumJpService expressNumJpService;
+    private ExpressNumYtoService expressNumYtoService;
     @Autowired
     private OrderMasterService orderMasterService;
 	@Autowired
@@ -273,7 +273,7 @@ public class BackOrderBatchServiceImpl implements BackOrderBatchService{
 
             for(OrderDto orderDto : listOrderDto){
             	try {
-            		ExpressNumJp unusedNum = updateOrderForBack(orderDto);
+            		ExpressNumYto unusedNum = updateOrderForBack(orderDto);
             		// 触发短信通知买家查询物流
             		SendSmsResponse response = smsUtil.expressNotify(orderDto.getRecipientPhone(), unusedNum.getExpNum(), null);
             		if (response.getCode() != null && response.getCode().equals("OK")) {
@@ -296,11 +296,11 @@ public class BackOrderBatchServiceImpl implements BackOrderBatchService{
 
 
 	@Transactional(rollbackFor = Exception.class)
-	private ExpressNumJp updateOrderForBack(OrderDto orderDto) {
+	private ExpressNumYto updateOrderForBack(OrderDto orderDto) {
 		orderService.paid(orderDto);
 		
 		// 生成物流单号
-		ExpressNumJp unusedNum = expressNumJpService.findUnused();
+		ExpressNumYto unusedNum = expressNumYtoService.findUnused();
 		orderDto.setExpressNumber(unusedNum.getExpNum());
 		
 		// 保存单号至订单主表
@@ -309,7 +309,7 @@ public class BackOrderBatchServiceImpl implements BackOrderBatchService{
 		orderService.save(orderMaster);
 		
 		// 单号标记为已经使用
-		expressNumJpService.updateStatus(unusedNum.getId(), ExpressNumStatusEnum.USED.getCode());
+		expressNumYtoService.updateStatus(unusedNum.getId(), ExpressNumStatusEnum.USED.getCode());
 		return unusedNum;
 	}
 	

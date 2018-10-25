@@ -1,6 +1,6 @@
 package com.jizhangyl.application.VO;
 
-import com.jizhangyl.application.dataobject.PurchasePayDetail;
+import com.jizhangyl.application.dataobject.primary.PurchasePayDetail;
 import lombok.Data;
 
 import java.math.BigDecimal;

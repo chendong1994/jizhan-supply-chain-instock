@@ -1,7 +1,7 @@
 package com.jizhangyl.application.service.impl;
 
-import com.jizhangyl.application.dataobject.PurchaseOrderPay;
-import com.jizhangyl.application.repository.PurchaseOrderPayRepository;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderPay;
+import com.jizhangyl.application.repository.primary.PurchaseOrderPayRepository;
 import com.jizhangyl.application.service.PurchaseOrderPayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

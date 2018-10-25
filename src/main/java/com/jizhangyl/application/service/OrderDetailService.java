@@ -1,6 +1,6 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.OrderDetail;
+import com.jizhangyl.application.dataobject.primary.OrderDetail;
 
 import java.util.List;
 

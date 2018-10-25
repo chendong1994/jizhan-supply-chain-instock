@@ -1,9 +1,9 @@
 package com.jizhangyl.application.service.impl;
 
-import com.jizhangyl.application.dataobject.Brand;
+import com.jizhangyl.application.dataobject.primary.Brand;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.BrandRepository;
+import com.jizhangyl.application.repository.primary.BrandRepository;
 import com.jizhangyl.application.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

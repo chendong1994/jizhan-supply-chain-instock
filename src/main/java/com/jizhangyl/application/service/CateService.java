@@ -1,7 +1,7 @@
 package com.jizhangyl.application.service;
 
 import com.jizhangyl.application.VO.CateVO;
-import com.jizhangyl.application.dataobject.Cate;
+import com.jizhangyl.application.dataobject.primary.Cate;
 import com.jizhangyl.application.form.CateForm;
 
 import java.util.List;

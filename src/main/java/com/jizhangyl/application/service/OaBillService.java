@@ -3,7 +3,7 @@ package com.jizhangyl.application.service;
 import java.util.Date;
 import java.util.List;
 
-import com.jizhangyl.application.dataobject.OaBill;
+import com.jizhangyl.application.dataobject.primary.OaBill;
 
 /**
  * 内部oa 账单

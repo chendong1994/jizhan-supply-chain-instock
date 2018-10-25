@@ -2,7 +2,7 @@ package com.jizhangyl.application.service;
 
 import java.util.List;
 
-import com.jizhangyl.application.dataobject.SysUserRole;
+import com.jizhangyl.application.dataobject.primary.SysUserRole;
 
 /**
  * @author 曲健磊

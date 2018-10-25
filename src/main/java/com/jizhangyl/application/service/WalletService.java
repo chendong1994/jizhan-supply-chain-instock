@@ -1,6 +1,6 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.Wallet;
+import com.jizhangyl.application.dataobject.primary.Wallet;
 
 /**
  * 用户钱包

@@ -2,9 +2,9 @@ package com.jizhangyl.application.dto;
 
 import java.util.List;
 
-import com.jizhangyl.application.dataobject.SysMenu;
-import com.jizhangyl.application.dataobject.SysRole;
-import com.jizhangyl.application.dataobject.UserInfo;
+import com.jizhangyl.application.dataobject.primary.SysMenu;
+import com.jizhangyl.application.dataobject.primary.SysRole;
+import com.jizhangyl.application.dataobject.secondary.UserInfo;
 
 import lombok.Data;
 

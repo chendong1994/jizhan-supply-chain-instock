@@ -63,5 +63,5 @@ public class ShopDto {
     /**
      * 是否含有中文标签
      */
-    private Integer CnLabel;
+    private Integer cnLabel;
 }

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jizhangyl.application.dataobject.OrderDetail;
-import com.jizhangyl.application.repository.OrderDetailRepository;
+import com.jizhangyl.application.dataobject.primary.OrderDetail;
+import com.jizhangyl.application.repository.primary.OrderDetailRepository;
 import com.jizhangyl.application.service.OrderDetailService;
 
 /**

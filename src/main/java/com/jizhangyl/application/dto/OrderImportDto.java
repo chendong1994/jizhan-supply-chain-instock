@@ -1,7 +1,7 @@
 package com.jizhangyl.application.dto;
 
-import com.jizhangyl.application.dataobject.OrderImportDetail;
-import com.jizhangyl.application.dataobject.OrderImportMaster;
+import com.jizhangyl.application.dataobject.primary.OrderImportDetail;
+import com.jizhangyl.application.dataobject.primary.OrderImportMaster;
 import lombok.Data;
 
 import java.util.List;

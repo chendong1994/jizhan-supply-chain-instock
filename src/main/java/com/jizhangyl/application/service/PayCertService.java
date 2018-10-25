@@ -1,6 +1,6 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.PayCert;
+import com.jizhangyl.application.dataobject.primary.PayCert;
 
 import java.util.List;
 

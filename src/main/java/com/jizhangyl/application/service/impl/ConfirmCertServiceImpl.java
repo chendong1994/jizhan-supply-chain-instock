@@ -1,7 +1,7 @@
 package com.jizhangyl.application.service.impl;
 
-import com.jizhangyl.application.dataobject.ConfirmCert;
-import com.jizhangyl.application.repository.ConfirmCertRepository;
+import com.jizhangyl.application.dataobject.primary.ConfirmCert;
+import com.jizhangyl.application.repository.primary.ConfirmCertRepository;
 import com.jizhangyl.application.service.ConfirmCertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,9 +1,7 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.OrderDetail;
-import com.jizhangyl.application.dataobject.PurchaseConfirmDetail;
-import com.jizhangyl.application.dataobject.PurchaseOrderDetail;
-import com.jizhangyl.application.dataobject.RepositoryProduct;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderDetail;
+import com.jizhangyl.application.dataobject.primary.RepositoryProduct;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

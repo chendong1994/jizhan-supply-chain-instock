@@ -1,6 +1,6 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.CcTemplate;
+import com.jizhangyl.application.dataobject.primary.CcTemplate;
 
 import java.util.List;
 

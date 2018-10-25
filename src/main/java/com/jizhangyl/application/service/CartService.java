@@ -1,7 +1,7 @@
 package com.jizhangyl.application.service;
 
 import com.jizhangyl.application.VO.CartVO;
-import com.jizhangyl.application.dataobject.OrderDetail;
+import com.jizhangyl.application.dataobject.primary.OrderDetail;
 
 import java.util.List;
 

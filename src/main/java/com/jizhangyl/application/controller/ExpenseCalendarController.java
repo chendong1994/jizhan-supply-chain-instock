@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jizhangyl.application.VO.ExpenseCalendarVO;
 import com.jizhangyl.application.VO.ResultVO;
-import com.jizhangyl.application.dataobject.ExpenseCalendar;
-import com.jizhangyl.application.dataobject.Wxuser;
+import com.jizhangyl.application.dataobject.primary.ExpenseCalendar;
+import com.jizhangyl.application.dataobject.secondary.Wxuser;
 import com.jizhangyl.application.service.ExpenseCalendarService;
 import com.jizhangyl.application.utils.ResultVOUtil;
 

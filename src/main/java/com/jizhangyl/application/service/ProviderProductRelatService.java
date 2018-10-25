@@ -1,12 +1,11 @@
 package com.jizhangyl.application.service;
 
 import com.jizhangyl.application.VO.ProviderProductRelatVo;
-import com.jizhangyl.application.dataobject.ProviderProductRelat;
+import com.jizhangyl.application.dataobject.primary.ProviderProductRelat;
 import com.jizhangyl.application.form.ProviderProductRelatForm;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 /**

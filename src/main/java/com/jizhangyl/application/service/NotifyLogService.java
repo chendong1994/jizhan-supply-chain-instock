@@ -1,6 +1,6 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.NotifyLog;
+import com.jizhangyl.application.dataobject.primary.NotifyLog;
 
 /**
  * @author 曲健磊

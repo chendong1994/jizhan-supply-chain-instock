@@ -1,9 +1,9 @@
 package com.jizhangyl.application.service.impl;
 
-import com.jizhangyl.application.dataobject.Flight;
-import com.jizhangyl.application.dataobject.FlightImage;
-import com.jizhangyl.application.dataobject.FlightPackag;
-import com.jizhangyl.application.dataobject.OrderMaster;
+import com.jizhangyl.application.dataobject.primary.Flight;
+import com.jizhangyl.application.dataobject.primary.FlightImage;
+import com.jizhangyl.application.dataobject.primary.FlightPackag;
+import com.jizhangyl.application.dataobject.primary.OrderMaster;
 import com.jizhangyl.application.dto.FlightDetailsDto;
 import com.jizhangyl.application.dto.FlightDto;
 import com.jizhangyl.application.dto.FlightUnfinishedDto;
@@ -12,10 +12,10 @@ import com.jizhangyl.application.enums.OrderStatusEnum;
 import com.jizhangyl.application.enums.PackageStatusEnum;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.FlightImageRepository;
-import com.jizhangyl.application.repository.FlightPackagRepository;
-import com.jizhangyl.application.repository.FlightRepository;
-import com.jizhangyl.application.repository.OrderMasterRepository;
+import com.jizhangyl.application.repository.primary.FlightImageRepository;
+import com.jizhangyl.application.repository.primary.FlightPackagRepository;
+import com.jizhangyl.application.repository.primary.FlightRepository;
+import com.jizhangyl.application.repository.primary.OrderMasterRepository;
 import com.jizhangyl.application.service.FlightService;
 import com.jizhangyl.application.utils.DateUtil;
 import lombok.extern.slf4j.Slf4j;

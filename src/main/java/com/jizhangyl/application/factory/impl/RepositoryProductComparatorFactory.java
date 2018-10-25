@@ -3,7 +3,7 @@ package com.jizhangyl.application.factory.impl;
 import java.util.Comparator;
 import java.util.Objects;
 
-import com.jizhangyl.application.dataobject.RepositoryProduct;
+import com.jizhangyl.application.dataobject.primary.RepositoryProduct;
 import com.jizhangyl.application.enums.sort.OrderSortEnum;
 import com.jizhangyl.application.enums.sort.RepositoryProductSortEnum;
 import com.jizhangyl.application.factory.ComparatorFactory;

@@ -9,9 +9,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 
-import com.jizhangyl.application.dataobject.ExpenseCalendar;
-import com.jizhangyl.application.dataobject.Interests;
-import com.jizhangyl.application.dataobject.Wxuser;
+import com.jizhangyl.application.dataobject.primary.ExpenseCalendar;
+import com.jizhangyl.application.dataobject.primary.Interests;
+import com.jizhangyl.application.dataobject.secondary.Wxuser;
 
 /**
  * 

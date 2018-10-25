@@ -1,6 +1,6 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.ExpressNum;
+import com.jizhangyl.application.dataobject.primary.ExpressNum;
 
 import java.util.List;
 

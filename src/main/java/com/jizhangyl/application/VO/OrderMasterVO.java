@@ -1,6 +1,6 @@
 package com.jizhangyl.application.VO;
 
-import com.jizhangyl.application.dataobject.OrderMaster;
+import com.jizhangyl.application.dataobject.primary.OrderMaster;
 import lombok.Data;
 
 /**

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONArray;
 import com.jizhangyl.application.VO.ResultVO;
-import com.jizhangyl.application.dataobject.UserInfo;
+import com.jizhangyl.application.dataobject.secondary.UserInfo;
 import com.jizhangyl.application.dto.UserInfoDTO;
 import com.jizhangyl.application.service.SysRoleService;
 import com.jizhangyl.application.service.SysUserRoleService;

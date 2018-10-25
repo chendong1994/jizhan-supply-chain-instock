@@ -1,13 +1,13 @@
 package com.jizhangyl.application.service.impl;
 
 import com.jizhangyl.application.VO.ProviderProductRelatVo;
-import com.jizhangyl.application.dataobject.ProductProvider;
-import com.jizhangyl.application.dataobject.ProviderProductRelat;
-import com.jizhangyl.application.dataobject.Shop;
+import com.jizhangyl.application.dataobject.primary.ProductProvider;
+import com.jizhangyl.application.dataobject.primary.ProviderProductRelat;
+import com.jizhangyl.application.dataobject.primary.Shop;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
 import com.jizhangyl.application.form.ProviderProductRelatForm;
-import com.jizhangyl.application.repository.ProviderProductRelatRepository;
+import com.jizhangyl.application.repository.primary.ProviderProductRelatRepository;
 import com.jizhangyl.application.service.ProductProviderService;
 import com.jizhangyl.application.service.ProviderProductRelatService;
 import com.jizhangyl.application.service.ShopService;

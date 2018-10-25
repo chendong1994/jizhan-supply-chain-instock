@@ -1,7 +1,8 @@
 package com.jizhangyl.application.repository;
 
 import com.jizhangyl.application.MainApplicationTests;
-import com.jizhangyl.application.dataobject.ConfirmCert;
+import com.jizhangyl.application.dataobject.primary.ConfirmCert;
+import com.jizhangyl.application.repository.primary.ConfirmCertRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * @author 杨贤达

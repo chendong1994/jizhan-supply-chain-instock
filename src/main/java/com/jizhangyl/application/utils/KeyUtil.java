@@ -28,7 +28,6 @@ public class KeyUtil {
         Random random = new Random();
         Integer number = random.nextInt(900000) + 100000;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-        
         return sdf.format(new Date()) + String.valueOf(number)  ;
     }
 

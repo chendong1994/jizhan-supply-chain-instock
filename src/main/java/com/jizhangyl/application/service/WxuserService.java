@@ -1,6 +1,6 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.Wxuser;
+import com.jizhangyl.application.dataobject.secondary.Wxuser;
 import com.jizhangyl.application.enums.WechatUserStatusEnum;
 
 import net.sf.json.JSONObject;

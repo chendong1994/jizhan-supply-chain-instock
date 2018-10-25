@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 
 import com.github.binarywang.wxpay.bean.notify.WxPayOrderNotifyResult;
-import com.jizhangyl.application.dataobject.OrderBatch;
-import com.jizhangyl.application.dataobject.WxuserAddr;
+import com.jizhangyl.application.dataobject.primary.OrderBatch;
+import com.jizhangyl.application.dataobject.primary.WxuserAddr;
 import com.jizhangyl.application.dto.OrderDto;
 
 /**

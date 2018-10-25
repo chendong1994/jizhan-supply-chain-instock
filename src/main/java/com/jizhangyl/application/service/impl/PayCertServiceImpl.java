@@ -1,7 +1,7 @@
 package com.jizhangyl.application.service.impl;
 
-import com.jizhangyl.application.dataobject.PayCert;
-import com.jizhangyl.application.repository.PayCertRepository;
+import com.jizhangyl.application.dataobject.primary.PayCert;
+import com.jizhangyl.application.repository.primary.PayCertRepository;
 import com.jizhangyl.application.service.PayCertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

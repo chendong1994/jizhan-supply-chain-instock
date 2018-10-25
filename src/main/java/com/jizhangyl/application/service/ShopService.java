@@ -8,8 +8,8 @@ import org.springframework.data.domain.Pageable;
 
 import com.jizhangyl.application.VO.ShopDetailVO;
 import com.jizhangyl.application.VO.ShopVO;
-import com.jizhangyl.application.dataobject.OrderDetail;
-import com.jizhangyl.application.dataobject.Shop;
+import com.jizhangyl.application.dataobject.primary.OrderDetail;
+import com.jizhangyl.application.dataobject.primary.Shop;
 import com.jizhangyl.application.dto.ShopDto;
 
 /**

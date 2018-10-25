@@ -80,7 +80,7 @@ public class ShopVO implements Serializable {
      * 是否含有中文标签
      */
     @JsonProperty("cn_label")
-    private Integer CnLabel;
+    private Integer cnLabel;
 
     public ShopVO addPropName(String brandName, String cateName) {
         this.brandName = brandName;

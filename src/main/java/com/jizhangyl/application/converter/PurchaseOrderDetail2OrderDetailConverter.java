@@ -1,7 +1,7 @@
 package com.jizhangyl.application.converter;
 
-import com.jizhangyl.application.dataobject.OrderDetail;
-import com.jizhangyl.application.dataobject.PurchaseOrderDetail;
+import com.jizhangyl.application.dataobject.primary.OrderDetail;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderDetail;
 
 import java.util.List;
 import java.util.stream.Collectors;

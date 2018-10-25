@@ -2,7 +2,7 @@ package com.jizhangyl.application.service;
 
 import java.util.List;
 
-import com.jizhangyl.application.dataobject.ProviderProductLog;
+import com.jizhangyl.application.dataobject.primary.ProviderProductLog;
 
 /**
  * @author 曲健磊

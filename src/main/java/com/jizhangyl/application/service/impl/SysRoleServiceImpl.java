@@ -12,15 +12,15 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jizhangyl.application.dataobject.SysMenu;
-import com.jizhangyl.application.dataobject.SysRole;
-import com.jizhangyl.application.dataobject.SysRoleMenu;
+import com.jizhangyl.application.dataobject.primary.SysMenu;
+import com.jizhangyl.application.dataobject.primary.SysRole;
+import com.jizhangyl.application.dataobject.primary.SysRoleMenu;
 import com.jizhangyl.application.dto.SysRoleDTO;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.SysMenuRepository;
-import com.jizhangyl.application.repository.SysRoleMenuRepository;
-import com.jizhangyl.application.repository.SysRoleRepository;
+import com.jizhangyl.application.repository.primary.SysMenuRepository;
+import com.jizhangyl.application.repository.primary.SysRoleMenuRepository;
+import com.jizhangyl.application.repository.primary.SysRoleRepository;
 import com.jizhangyl.application.service.SysRoleService;
 
 import lombok.extern.slf4j.Slf4j;

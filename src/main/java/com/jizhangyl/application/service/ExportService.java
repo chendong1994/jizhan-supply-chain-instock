@@ -6,8 +6,7 @@ import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 
-import com.jizhangyl.application.dataobject.OrderForRepository;
-import com.jizhangyl.application.dataobject.OrderMaster;
+import com.jizhangyl.application.dataobject.primary.OrderForRepository;
 import com.jizhangyl.application.dto.AllDataDTO;
 import com.jizhangyl.application.dto.BuyerSalesDTO;
 import com.jizhangyl.application.dto.ShopSalesDTO;

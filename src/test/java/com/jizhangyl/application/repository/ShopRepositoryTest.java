@@ -1,16 +1,14 @@
 package com.jizhangyl.application.repository;
 
 import com.jizhangyl.application.MainApplicationTests;
-import com.jizhangyl.application.dataobject.Shop;
-import com.sun.xml.internal.ws.policy.AssertionValidationProcessor;
+import com.jizhangyl.application.dataobject.primary.Shop;
+import com.jizhangyl.application.repository.primary.ShopRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * @author 杨贤达

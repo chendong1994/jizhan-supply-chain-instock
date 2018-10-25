@@ -1,10 +1,10 @@
 package com.jizhangyl.application.service.impl;
 
-import com.jizhangyl.application.dataobject.PurchaseOrderDetail;
-import com.jizhangyl.application.dataobject.RepositoryProduct;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderDetail;
+import com.jizhangyl.application.dataobject.primary.RepositoryProduct;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.RepositoryProductRepository;
+import com.jizhangyl.application.repository.primary.RepositoryProductRepository;
 import com.jizhangyl.application.service.RepositoryProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

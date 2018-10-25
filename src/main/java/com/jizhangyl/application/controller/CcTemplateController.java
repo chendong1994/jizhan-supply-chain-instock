@@ -1,7 +1,7 @@
 package com.jizhangyl.application.controller;
 
 import com.jizhangyl.application.VO.ResultVO;
-import com.jizhangyl.application.dataobject.CcTemplate;
+import com.jizhangyl.application.dataobject.primary.CcTemplate;
 import com.jizhangyl.application.service.CcTemplateService;
 import com.jizhangyl.application.utils.ResultVOUtil;
 import com.jizhangyl.application.utils.excel.ExcelUtil;

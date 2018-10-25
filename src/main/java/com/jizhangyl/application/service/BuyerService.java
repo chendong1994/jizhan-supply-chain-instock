@@ -1,7 +1,7 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.BuyerInfo;
-import com.jizhangyl.application.dataobject.OrderMaster;
+import com.jizhangyl.application.dataobject.primary.BuyerInfo;
+import com.jizhangyl.application.dataobject.primary.OrderMaster;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package com.jizhangyl.application.service.impl;
 
-import com.jizhangyl.application.dataobject.PurchaseOrderConfirm;
-import com.jizhangyl.application.repository.PurchaseOrderConfirmRepository;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderConfirm;
+import com.jizhangyl.application.repository.primary.PurchaseOrderConfirmRepository;
 import com.jizhangyl.application.service.PurchaseOrderConfirmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

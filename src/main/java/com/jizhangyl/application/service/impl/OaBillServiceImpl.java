@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jizhangyl.application.dataobject.OaBill;
-import com.jizhangyl.application.repository.OaBillRepository;
+import com.jizhangyl.application.dataobject.primary.OaBill;
+import com.jizhangyl.application.repository.primary.OaBillRepository;
 import com.jizhangyl.application.service.OaBillService;
 
 

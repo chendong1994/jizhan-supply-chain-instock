@@ -1,7 +1,7 @@
 package com.jizhangyl.application.dto;
 
 
-import com.jizhangyl.application.dataobject.PurchaseOrderDetail;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderDetail;
 import com.jizhangyl.application.enums.PayStatusEnum;
 import com.jizhangyl.application.enums.PurchaseOrderStatusEnum;
 import lombok.Data;

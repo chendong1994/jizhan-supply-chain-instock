@@ -31,7 +31,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.jizhangyl.application.dataobject.OrderForRepository;
+import com.jizhangyl.application.dataobject.primary.OrderForRepository;
 import com.jizhangyl.application.dto.AllDataDTO;
 import com.jizhangyl.application.dto.BuyerSalesDTO;
 import com.jizhangyl.application.dto.ShopSalesDTO;

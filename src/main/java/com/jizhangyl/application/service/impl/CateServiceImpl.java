@@ -1,11 +1,11 @@
 package com.jizhangyl.application.service.impl;
 
 import com.jizhangyl.application.VO.CateVO;
-import com.jizhangyl.application.dataobject.Cate;
+import com.jizhangyl.application.dataobject.primary.Cate;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
 import com.jizhangyl.application.form.CateForm;
-import com.jizhangyl.application.repository.CateRepository;
+import com.jizhangyl.application.repository.primary.CateRepository;
 import com.jizhangyl.application.service.CateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

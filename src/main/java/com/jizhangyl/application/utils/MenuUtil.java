@@ -2,7 +2,7 @@ package com.jizhangyl.application.utils;
 
 import java.util.List;
 
-import com.jizhangyl.application.dataobject.SysMenu;
+import com.jizhangyl.application.dataobject.primary.SysMenu;
 import com.jizhangyl.application.dto.SysMenuDTO;
 
 /**

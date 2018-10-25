@@ -41,8 +41,7 @@ public class AuthorizeAspect {
     "&& !execution(public * com.jizhangyl.application.controller.WechatUserController.*(..))" +
     "&& !execution(public * com.jizhangyl.application.controller.WechatController.*(..))" +
     "&& !execution(public * com.jizhangyl.application.controller.TestController.*(..))" +
-    "&& !execution(public * com.jizhangyl.application.controller.PayController.*(..))" +
-    "&& !execution(public * com.jizhangyl.application.controller.ExpressController.getOpenid(..))")
+    "&& !execution(public * com.jizhangyl.application.controller.PayController.*(..))")
     public void verify() {}
 
     @Before("verify()")

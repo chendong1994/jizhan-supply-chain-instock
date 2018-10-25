@@ -1,9 +1,15 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    username: admin
-    password: 123456
-    url: jdbc:mysql://127.0.0.1:3306/jizhangyl_actuals?useUnicode=true&useSSL=false&autoReconnect=true
+    primary:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: admin
+      password: 123456
+      url: jdbc:mysql://127.0.0.1:3306/jizhangyl_actuals?useUnicode=true&useSSL=false&autoReconnect=true
+    secondary:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: admin
+      password: 123456
+      url: jdbc:mysql://127.0.0.1:3306/jzgyl?useUnicode=true&useSSL=false&autoReconnect=true
   redis:
     host: 127.0.0.1
     port: 6379

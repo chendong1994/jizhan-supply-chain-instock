@@ -39,6 +39,12 @@ logging:
     org.springframework.web: DEBUG
     com.github.binarywang.demo.wx.pay: DEBUG
     com.github.binarywang.wxpay: DEBUG
+management:
+  security:
+    enabled: false
+  health:
+    redis:
+      enabled: false
 wechat:
   mpAppId: wx742c20cd02c59c8f
   mpAppSecret: 009e388294b43ebb66e35577f46034ff

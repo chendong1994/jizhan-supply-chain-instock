@@ -1,11 +1,11 @@
 package com.jizhangyl.application.converter;
 
 import com.jizhangyl.application.VO.ShopExportVo;
-import com.jizhangyl.application.dataobject.OrderDetail;
-import com.jizhangyl.application.dataobject.OrderExport;
-import com.jizhangyl.application.dataobject.OrderMaster;
-import com.jizhangyl.application.dataobject.Shop;
-import com.jizhangyl.application.dataobject.WxuserAddr;
+import com.jizhangyl.application.dataobject.primary.OrderDetail;
+import com.jizhangyl.application.dataobject.primary.OrderExport;
+import com.jizhangyl.application.dataobject.primary.OrderMaster;
+import com.jizhangyl.application.dataobject.primary.Shop;
+import com.jizhangyl.application.dataobject.primary.WxuserAddr;
 import com.jizhangyl.application.service.OrderDetailService;
 import com.jizhangyl.application.service.ShopService;
 import lombok.extern.slf4j.Slf4j;

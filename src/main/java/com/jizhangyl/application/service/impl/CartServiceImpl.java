@@ -1,13 +1,13 @@
 package com.jizhangyl.application.service.impl;
 
 import com.jizhangyl.application.VO.CartVO;
-import com.jizhangyl.application.dataobject.Cart;
-import com.jizhangyl.application.dataobject.OrderDetail;
-import com.jizhangyl.application.dataobject.Shop;
+import com.jizhangyl.application.dataobject.primary.Cart;
+import com.jizhangyl.application.dataobject.primary.OrderDetail;
+import com.jizhangyl.application.dataobject.primary.Shop;
 import com.jizhangyl.application.enums.CartEnum;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.CartRepository;
+import com.jizhangyl.application.repository.primary.CartRepository;
 import com.jizhangyl.application.service.CartService;
 import com.jizhangyl.application.service.ShopService;
 import org.springframework.beans.BeanUtils;

@@ -1,6 +1,6 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.Shop;
+import com.jizhangyl.application.dataobject.primary.Shop;
 import com.jizhangyl.application.dto.ShopDto;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;

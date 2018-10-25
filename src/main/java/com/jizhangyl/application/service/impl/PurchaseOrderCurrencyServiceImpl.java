@@ -1,9 +1,9 @@
 package com.jizhangyl.application.service.impl;
 
-import com.jizhangyl.application.dataobject.PurchaseOrderCurrency;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderCurrency;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.PurchaseOrderCurrencyRepository;
+import com.jizhangyl.application.repository.primary.PurchaseOrderCurrencyRepository;
 import com.jizhangyl.application.service.PurchaseOrderCurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

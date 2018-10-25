@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-import com.jizhangyl.application.dataobject.Wallet;
-import com.jizhangyl.application.dataobject.Wxuser;
+import com.jizhangyl.application.dataobject.primary.Wallet;
+import com.jizhangyl.application.dataobject.secondary.Wxuser;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.enums.WalletStatusEnum;
 import com.jizhangyl.application.enums.WechatUserStatusEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.OrderMasterRepository;
-import com.jizhangyl.application.repository.WxuserRepository;
+import com.jizhangyl.application.repository.primary.OrderMasterRepository;
+import com.jizhangyl.application.repository.secondary.WxuserRepository;
 import com.jizhangyl.application.service.WalletService;
 import com.jizhangyl.application.service.WxuserService;
 import com.jizhangyl.application.utils.KeyUtil;

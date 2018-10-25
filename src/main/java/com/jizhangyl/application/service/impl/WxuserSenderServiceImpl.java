@@ -1,12 +1,12 @@
 package com.jizhangyl.application.service.impl;
 
-import com.jizhangyl.application.dataobject.WxuserSender;
+import com.jizhangyl.application.dataobject.primary.WxuserSender;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.enums.SenderStatusEnum;
 import com.jizhangyl.application.exception.GlobalException;
 import com.jizhangyl.application.form.WxuserSenderForm;
 import com.jizhangyl.application.form.WxuserSenderUpdateForm;
-import com.jizhangyl.application.repository.WxuserSenderRepository;
+import com.jizhangyl.application.repository.primary.WxuserSenderRepository;
 import com.jizhangyl.application.service.WxuserSenderService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

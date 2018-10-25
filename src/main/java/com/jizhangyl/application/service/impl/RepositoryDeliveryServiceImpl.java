@@ -1,14 +1,14 @@
 package com.jizhangyl.application.service.impl;
 
-import com.jizhangyl.application.dataobject.ExpressNum;
-import com.jizhangyl.application.dataobject.OrderDetail;
-import com.jizhangyl.application.dataobject.OrderMaster;
-import com.jizhangyl.application.dataobject.PurchaseOrderDetail;
-import com.jizhangyl.application.dataobject.RepositoryDelivery;
+import com.jizhangyl.application.dataobject.primary.ExpressNum;
+import com.jizhangyl.application.dataobject.primary.OrderDetail;
+import com.jizhangyl.application.dataobject.primary.OrderMaster;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderDetail;
+import com.jizhangyl.application.dataobject.primary.RepositoryDelivery;
 import com.jizhangyl.application.enums.OrderStatusEnum;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.RepositoryDeliveryRepository;
+import com.jizhangyl.application.repository.primary.RepositoryDeliveryRepository;
 import com.jizhangyl.application.service.OrderMasterService;
 import com.jizhangyl.application.service.RepositoryDeliveryService;
 import com.jizhangyl.application.service.RepositoryProductService;

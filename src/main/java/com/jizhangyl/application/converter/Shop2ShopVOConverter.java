@@ -1,7 +1,7 @@
 package com.jizhangyl.application.converter;
 
 import com.jizhangyl.application.VO.ShopVO;
-import com.jizhangyl.application.dataobject.Shop;
+import com.jizhangyl.application.dataobject.primary.Shop;
 import org.springframework.beans.BeanUtils;
 
 import java.util.List;

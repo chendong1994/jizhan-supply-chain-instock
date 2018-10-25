@@ -2,7 +2,6 @@ package com.jizhangyl.application.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.jizhangyl.application.VO.ExpressPreviewVo;
-import com.jizhangyl.application.dataobject.ExpressQueryHistory;
 
 import java.util.List;
 

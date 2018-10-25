@@ -1,10 +1,10 @@
 package com.jizhangyl.application.service.impl;
 
 import com.jizhangyl.application.VO.ProductImageVO;
-import com.jizhangyl.application.dataobject.ProductImage;
+import com.jizhangyl.application.dataobject.primary.ProductImage;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.ProductImageRepository;
+import com.jizhangyl.application.repository.primary.ProductImageRepository;
 import com.jizhangyl.application.service.ProductImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

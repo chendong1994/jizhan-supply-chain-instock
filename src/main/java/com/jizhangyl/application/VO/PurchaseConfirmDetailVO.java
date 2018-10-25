@@ -1,10 +1,8 @@
 package com.jizhangyl.application.VO;
 
-import com.jizhangyl.application.dataobject.ConfirmCert;
-import com.jizhangyl.application.dataobject.PurchaseConfirmDetail;
+import com.jizhangyl.application.dataobject.primary.PurchaseConfirmDetail;
 import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

@@ -2,7 +2,7 @@ package com.jizhangyl.application.service;
 
 import java.util.List;
 
-import com.jizhangyl.application.dataobject.SysRoleMenu;
+import com.jizhangyl.application.dataobject.primary.SysRoleMenu;
 
 /**
  * @author 曲健磊

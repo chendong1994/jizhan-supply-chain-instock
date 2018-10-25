@@ -2,11 +2,11 @@ package com.jizhangyl.application.service.impl;
 
 import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
 import com.jizhangyl.application.constant.RedisConstant;
-import com.jizhangyl.application.dataobject.ExpressNum;
+import com.jizhangyl.application.dataobject.primary.ExpressNum;
 import com.jizhangyl.application.enums.ExpressNumStatusEnum;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.ExpressNumRepository;
+import com.jizhangyl.application.repository.primary.ExpressNumRepository;
 import com.jizhangyl.application.service.ExpressNumService;
 import com.jizhangyl.application.service.RedisLock;
 import com.jizhangyl.application.utils.SmsUtil;

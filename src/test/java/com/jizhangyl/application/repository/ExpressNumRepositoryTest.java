@@ -1,12 +1,11 @@
 package com.jizhangyl.application.repository;
 
 import com.jizhangyl.application.MainApplicationTests;
+import com.jizhangyl.application.repository.primary.ExpressNumRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import static org.junit.Assert.*;
 
 /**
  * @author 杨贤达

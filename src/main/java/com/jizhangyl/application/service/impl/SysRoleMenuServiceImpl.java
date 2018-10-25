@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jizhangyl.application.dataobject.SysRoleMenu;
-import com.jizhangyl.application.repository.SysRoleMenuRepository;
+import com.jizhangyl.application.dataobject.primary.SysRoleMenu;
+import com.jizhangyl.application.repository.primary.SysRoleMenuRepository;
 import com.jizhangyl.application.service.SysRoleMenuService;
 
 /**

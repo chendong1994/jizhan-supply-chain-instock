@@ -1,6 +1,6 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.FileTemplate;
+import com.jizhangyl.application.dataobject.primary.FileTemplate;
 
 /**
  * @author 杨贤达

@@ -1,7 +1,7 @@
 package com.jizhangyl.application.service.impl;
 
-import com.jizhangyl.application.dataobject.FileTemplate;
-import com.jizhangyl.application.repository.FileTemplateRepository;
+import com.jizhangyl.application.dataobject.primary.FileTemplate;
+import com.jizhangyl.application.repository.primary.FileTemplateRepository;
 import com.jizhangyl.application.service.FileTemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

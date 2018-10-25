@@ -1,7 +1,7 @@
 package com.jizhangyl.application.controller;
 
 import com.jizhangyl.application.VO.ResultVO;
-import com.jizhangyl.application.dataobject.WxuserAddr;
+import com.jizhangyl.application.dataobject.primary.WxuserAddr;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
 import com.jizhangyl.application.form.WxuserAddrForm;

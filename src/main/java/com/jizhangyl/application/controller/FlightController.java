@@ -37,8 +37,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.jizhangyl.application.VO.ResultVO;
-import com.jizhangyl.application.dataobject.Flight;
-import com.jizhangyl.application.dataobject.FlightPackag;
+import com.jizhangyl.application.dataobject.primary.Flight;
+import com.jizhangyl.application.dataobject.primary.FlightPackag;
 import com.jizhangyl.application.dto.FlightDto;
 import com.jizhangyl.application.enums.PackageStatusEnum;
 import com.jizhangyl.application.exception.GlobalException;

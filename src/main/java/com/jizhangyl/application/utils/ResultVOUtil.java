@@ -1,18 +1,10 @@
 package com.jizhangyl.application.utils;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import com.jizhangyl.application.VO.ResultVO;
-import com.jizhangyl.application.dataobject.SysMenu;
-import com.jizhangyl.application.dataobject.UserInfo;
-import com.jizhangyl.application.dto.UserInfoDTO;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.service.UserInfoService;
 

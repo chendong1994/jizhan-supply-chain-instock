@@ -7,15 +7,15 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jizhangyl.application.dataobject.ExpenseCalendar;
-import com.jizhangyl.application.dataobject.Wallet;
-import com.jizhangyl.application.dataobject.Wxuser;
+import com.jizhangyl.application.dataobject.primary.ExpenseCalendar;
+import com.jizhangyl.application.dataobject.primary.Wallet;
+import com.jizhangyl.application.dataobject.secondary.Wxuser;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.enums.WalletStatusEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.ExpenseCalendarRepository;
-import com.jizhangyl.application.repository.WalletRepository;
-import com.jizhangyl.application.repository.WxuserRepository;
+import com.jizhangyl.application.repository.primary.ExpenseCalendarRepository;
+import com.jizhangyl.application.repository.primary.WalletRepository;
+import com.jizhangyl.application.repository.secondary.WxuserRepository;
 import com.jizhangyl.application.service.WalletService;
 import com.jizhangyl.application.utils.DateUtil;
 

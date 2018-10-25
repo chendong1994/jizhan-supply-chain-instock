@@ -1,8 +1,6 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.WxuserAddr;
-import com.jizhangyl.application.dataobject.WxuserSender;
-import com.jizhangyl.application.form.WxuserAddrForm;
+import com.jizhangyl.application.dataobject.primary.WxuserSender;
 import com.jizhangyl.application.form.WxuserSenderForm;
 import com.jizhangyl.application.form.WxuserSenderUpdateForm;
 import org.springframework.data.domain.Page;

@@ -2,12 +2,12 @@ package com.jizhangyl.application.controller;
 
 import com.jizhangyl.application.VO.RepositoryProductVO;
 import com.jizhangyl.application.VO.ResultVO;
-import com.jizhangyl.application.dataobject.OrderDetail;
-import com.jizhangyl.application.dataobject.OrderMaster;
-import com.jizhangyl.application.dataobject.PurchaseOrderDetail;
-import com.jizhangyl.application.dataobject.PurchaseOrderMaster;
-import com.jizhangyl.application.dataobject.RepositoryDelivery;
-import com.jizhangyl.application.dataobject.RepositoryProduct;
+import com.jizhangyl.application.dataobject.primary.OrderDetail;
+import com.jizhangyl.application.dataobject.primary.OrderMaster;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderDetail;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderMaster;
+import com.jizhangyl.application.dataobject.primary.RepositoryDelivery;
+import com.jizhangyl.application.dataobject.primary.RepositoryProduct;
 import com.jizhangyl.application.enums.OrderStatusEnum;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;

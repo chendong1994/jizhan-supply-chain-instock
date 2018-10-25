@@ -1,11 +1,21 @@
 package com.jizhangyl.application.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
+import com.jizhangyl.application.VO.ResultVO;
+import com.jizhangyl.application.converter.OrderForm2OrderDto;
+import com.jizhangyl.application.dataobject.primary.OrderBatch;
+import com.jizhangyl.application.dataobject.secondary.UserInfo;
+import com.jizhangyl.application.dataobject.secondary.Wxuser;
+import com.jizhangyl.application.dataobject.primary.WxuserAddr;
+import com.jizhangyl.application.dto.OrderDto;
+import com.jizhangyl.application.enums.ResultEnum;
+import com.jizhangyl.application.exception.GlobalException;
+import com.jizhangyl.application.form.BatchOrderForm;
+import com.jizhangyl.application.form.OrderForm;
+import com.jizhangyl.application.service.BackOrderBatchService;
+import com.jizhangyl.application.service.UserInfoService;
+import com.jizhangyl.application.service.WxuserService;
+import com.jizhangyl.application.utils.ResultVOUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -17,23 +27,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.jizhangyl.application.VO.ResultVO;
-import com.jizhangyl.application.converter.OrderForm2OrderDto;
-import com.jizhangyl.application.dataobject.OrderBatch;
-import com.jizhangyl.application.dataobject.UserInfo;
-import com.jizhangyl.application.dataobject.Wxuser;
-import com.jizhangyl.application.dataobject.WxuserAddr;
-import com.jizhangyl.application.dto.OrderDto;
-import com.jizhangyl.application.enums.ResultEnum;
-import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.form.BatchOrderForm;
-import com.jizhangyl.application.form.OrderForm;
-import com.jizhangyl.application.service.BackOrderBatchService;
-import com.jizhangyl.application.service.UserInfoService;
-import com.jizhangyl.application.service.WxuserService;
-import com.jizhangyl.application.utils.ResultVOUtil;
-
-import lombok.extern.slf4j.Slf4j;
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 后台用户模块

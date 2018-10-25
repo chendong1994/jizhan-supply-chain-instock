@@ -1,7 +1,7 @@
 package com.jizhangyl.application.service;
 
-import com.jizhangyl.application.dataobject.ExpressNum;
-import com.jizhangyl.application.dataobject.RepositoryDelivery;
+import com.jizhangyl.application.dataobject.primary.ExpressNum;
+import com.jizhangyl.application.dataobject.primary.RepositoryDelivery;
 
 import java.util.Date;
 import java.util.List;

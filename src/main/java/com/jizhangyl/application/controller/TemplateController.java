@@ -1,7 +1,7 @@
 package com.jizhangyl.application.controller;
 
 import com.jizhangyl.application.VO.ResultVO;
-import com.jizhangyl.application.dataobject.FileTemplate;
+import com.jizhangyl.application.dataobject.primary.FileTemplate;
 import com.jizhangyl.application.enums.FileTemplateEnum;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;

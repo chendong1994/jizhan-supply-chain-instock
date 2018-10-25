@@ -104,5 +104,5 @@ public class ShopDetailVO implements Serializable {
      * 是否含有中文标签
      */
     @JsonProperty("cn_label")
-    private Integer CnLabel;
+    private Integer cnLabel;
 }

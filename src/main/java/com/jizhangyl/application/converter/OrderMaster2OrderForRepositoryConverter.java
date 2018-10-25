@@ -1,13 +1,13 @@
 package com.jizhangyl.application.converter;
 
-import com.jizhangyl.application.dataobject.BuyerInfo;
-import com.jizhangyl.application.dataobject.OrderDetail;
-import com.jizhangyl.application.dataobject.OrderForRepository;
-import com.jizhangyl.application.dataobject.OrderMaster;
-import com.jizhangyl.application.dataobject.Shop;
-import com.jizhangyl.application.dataobject.Wxuser;
-import com.jizhangyl.application.dataobject.WxuserAddr;
-import com.jizhangyl.application.dataobject.WxuserSender;
+import com.jizhangyl.application.dataobject.primary.BuyerInfo;
+import com.jizhangyl.application.dataobject.primary.OrderDetail;
+import com.jizhangyl.application.dataobject.primary.OrderForRepository;
+import com.jizhangyl.application.dataobject.primary.OrderMaster;
+import com.jizhangyl.application.dataobject.primary.Shop;
+import com.jizhangyl.application.dataobject.secondary.Wxuser;
+import com.jizhangyl.application.dataobject.primary.WxuserAddr;
+import com.jizhangyl.application.dataobject.primary.WxuserSender;
 import com.jizhangyl.application.enums.OrderStatusEnum;
 import com.jizhangyl.application.service.OrderDetailService;
 import com.jizhangyl.application.service.ShopService;

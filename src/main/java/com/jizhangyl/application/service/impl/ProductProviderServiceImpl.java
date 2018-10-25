@@ -1,11 +1,11 @@
 package com.jizhangyl.application.service.impl;
 
-import com.jizhangyl.application.dataobject.ProductProvider;
-import com.jizhangyl.application.dataobject.ProviderProductRelat;
+import com.jizhangyl.application.dataobject.primary.ProductProvider;
+import com.jizhangyl.application.dataobject.primary.ProviderProductRelat;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.ProductProviderRepository;
-import com.jizhangyl.application.repository.ProviderProductRelatRepository;
+import com.jizhangyl.application.repository.primary.ProductProviderRepository;
+import com.jizhangyl.application.repository.primary.ProviderProductRelatRepository;
 import com.jizhangyl.application.service.ProductProviderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

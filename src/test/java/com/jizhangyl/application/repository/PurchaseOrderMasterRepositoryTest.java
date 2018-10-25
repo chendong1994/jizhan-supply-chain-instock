@@ -1,9 +1,9 @@
 package com.jizhangyl.application.repository;
 
 import com.jizhangyl.application.MainApplicationTests;
-import com.jizhangyl.application.dataobject.PurchaseOrderMaster;
+import com.jizhangyl.application.dataobject.primary.PurchaseOrderMaster;
+import com.jizhangyl.application.repository.primary.PurchaseOrderMasterRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

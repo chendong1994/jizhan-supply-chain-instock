@@ -6,8 +6,8 @@ import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jizhangyl.application.dataobject.ProviderProductLog;
-import com.jizhangyl.application.repository.ProviderProductLogRepository;
+import com.jizhangyl.application.dataobject.primary.ProviderProductLog;
+import com.jizhangyl.application.repository.primary.ProviderProductLogRepository;
 import com.jizhangyl.application.service.ProviderProductLogService;
 
 /**

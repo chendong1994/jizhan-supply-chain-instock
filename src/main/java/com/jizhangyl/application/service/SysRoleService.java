@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.jizhangyl.application.dataobject.SysRole;
+import com.jizhangyl.application.dataobject.primary.SysRole;
 import com.jizhangyl.application.dto.SysRoleDTO;
 
 /**
