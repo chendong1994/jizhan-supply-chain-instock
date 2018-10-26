@@ -50,13 +50,15 @@ public class WxuserSenderServiceImpl implements WxuserSenderService {
         if (StringUtils.isEmpty(openid) || id == null) {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        WxuserSender sender = wxuserSenderRepository.findOne(id);
+//        WxuserSender sender = wxuserSenderRepository.findOne(id);
+        WxuserSender sender = wxuserSenderRepository.getOne(id);
         if (sender == null) {
             throw new GlobalException(ResultEnum.DELETE_FAIL);
         }
         String dbOpenid = sender.getOpenid();
         if (!StringUtils.isEmpty(dbOpenid) && dbOpenid.equals(openid)) {
-            wxuserSenderRepository.delete(id);
+//            wxuserSenderRepository.delete(id);
+            wxuserSenderRepository.deleteById(id);
         } else {
             throw new GlobalException(ResultEnum.ILLEGAL_OPERATION);
         }
@@ -80,7 +82,8 @@ public class WxuserSenderServiceImpl implements WxuserSenderService {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
         Integer id = wxuserSenderUpdateForm.getId();
-        WxuserSender sender = wxuserSenderRepository.findOne(id);
+//        WxuserSender sender = wxuserSenderRepository.findOne(id);
+        WxuserSender sender = wxuserSenderRepository.getOne(id);
         if (sender == null) {
             throw new GlobalException(ResultEnum.UPDATE_FAIL);
         }
@@ -100,7 +103,8 @@ public class WxuserSenderServiceImpl implements WxuserSenderService {
         if (StringUtils.isEmpty(openid) || id == null) {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        WxuserSender sender = wxuserSenderRepository.findOne(id);
+//        WxuserSender sender = wxuserSenderRepository.findOne(id);
+        WxuserSender sender = wxuserSenderRepository.getOne(id);
         if (sender == null) {
             throw new GlobalException(ResultEnum.SENDER_NOT_EXIST);
         }
@@ -135,7 +139,8 @@ public class WxuserSenderServiceImpl implements WxuserSenderService {
         if (senderId == null) {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        return wxuserSenderRepository.findOne(senderId);
+//        return wxuserSenderRepository.findOne(senderId);
+        return wxuserSenderRepository.getOne(senderId);
     }
 
     @Override

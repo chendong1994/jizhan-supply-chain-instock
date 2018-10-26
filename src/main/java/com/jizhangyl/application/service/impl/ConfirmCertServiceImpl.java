@@ -28,7 +28,8 @@ public class ConfirmCertServiceImpl implements ConfirmCertService {
     @Transactional(rollbackFor = Exception.class)
     @Override
     public List<ConfirmCert> save(List<ConfirmCert> confirmCertList) {
-        return confirmCertRepository.save(confirmCertList);
+//        return confirmCertRepository.save(confirmCertList);
+        return confirmCertRepository.saveAll(confirmCertList);
     }
 
     @Override

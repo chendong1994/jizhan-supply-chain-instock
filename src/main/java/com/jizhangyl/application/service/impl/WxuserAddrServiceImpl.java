@@ -51,14 +51,14 @@ public class WxuserAddrServiceImpl implements WxuserAddrService {
             List<WxuserAddr> dataList = new ArrayList<>();
             for (WxuserAddr wxuserAddr : wxuserAddrList) {
                 if (dataList.size() == 300) {
-                    wxuserAddrRepository.save(dataList);
+                    wxuserAddrRepository.saveAll(dataList);
                     counter += dataList.size();
                     dataList.clear();
                 }
                 dataList.add(wxuserAddr);
             }
             if (!dataList.isEmpty()) {
-                wxuserAddrRepository.save(dataList);
+                wxuserAddrRepository.saveAll(dataList);
                 counter += dataList.size();
             }
         } catch (Exception e) {
@@ -89,13 +89,15 @@ public class WxuserAddrServiceImpl implements WxuserAddrService {
         if (StringUtils.isEmpty(openid) || id == null) {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        WxuserAddr wxuserAddr = wxuserAddrRepository.findOne(id);
+//        WxuserAddr wxuserAddr = wxuserAddrRepository.findOne(id);
+        WxuserAddr wxuserAddr = wxuserAddrRepository.getOne(id);
         if (wxuserAddr == null) {
             throw new GlobalException(ResultEnum.DELETE_FAIL);
         }
         String dbOpenid = wxuserAddr.getOpenid();
         if (!StringUtils.isEmpty(dbOpenid) && dbOpenid.equals(openid)) {
-            wxuserAddrRepository.delete(id);
+//            wxuserAddrRepository.delete(id);
+            wxuserAddrRepository.deleteById(id);
         } else {
             throw new GlobalException(ResultEnum.ILLEGAL_OPERATION);
         }
@@ -120,7 +122,8 @@ public class WxuserAddrServiceImpl implements WxuserAddrService {
         }
         Integer id = wxuserAddrUpdateForm.getId();
 
-        WxuserAddr wxuserAddr = wxuserAddrRepository.findOne(id);
+//        WxuserAddr wxuserAddr = wxuserAddrRepository.findOne(id);
+        WxuserAddr wxuserAddr = wxuserAddrRepository.getOne(id);
         if (wxuserAddr == null) {
             throw new GlobalException(ResultEnum.UPDATE_FAIL);
         }
@@ -139,7 +142,8 @@ public class WxuserAddrServiceImpl implements WxuserAddrService {
         if (addrId == null) {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        return wxuserAddrRepository.findOne(addrId);
+//        return wxuserAddrRepository.findOne(addrId);
+        return wxuserAddrRepository.getOne(addrId);
     }
 
     @Override

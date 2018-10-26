@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @Component
-@ConfigurationProperties(prefix = "addressResolve")
+@ConfigurationProperties(prefix = "address-resolve")
 public class AddressResolveConfig {
 
     private String host;

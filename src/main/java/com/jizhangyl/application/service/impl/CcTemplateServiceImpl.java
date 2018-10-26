@@ -38,15 +38,15 @@ public class CcTemplateServiceImpl implements CcTemplateService {
         List<CcTemplate> dataList = new ArrayList<>(100);
         for (CcTemplate ccTemplate : ccTemplateList) {
             if (dataList.size() == 100) {
-                ccTemplateRepository.save(dataList);
+                ccTemplateRepository.saveAll(dataList);
                 dataList.clear();
             }
             dataList.add(ccTemplate);
         }
         if (!dataList.isEmpty()) {
-            ccTemplateRepository.save(dataList);
+            ccTemplateRepository.saveAll(dataList);
         }
-        return ccTemplateRepository.save(ccTemplateList);
+        return ccTemplateRepository.saveAll(ccTemplateList);
     }
 
     @Override

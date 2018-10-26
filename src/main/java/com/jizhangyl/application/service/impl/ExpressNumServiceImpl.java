@@ -38,7 +38,7 @@ public class ExpressNumServiceImpl implements ExpressNumService {
 
     @Override
     public void delete(Integer id) {
-        expressNumRepository.delete(id);
+        expressNumRepository.deleteById(id);
     }
 
     @Override
@@ -58,13 +58,15 @@ public class ExpressNumServiceImpl implements ExpressNumService {
 
         for (ExpressNum expressNum : expressNumList) {
             if (dataList.size() == 1000) {
-                expressNumRepository.save(dataList);
+//                expressNumRepository.save(dataList);
+                expressNumRepository.saveAll(dataList);
                 dataList.clear();
             }
             dataList.add(expressNum);
         }
         if (!dataList.isEmpty()) {
-            expressNumRepository.save(dataList);
+//            expressNumRepository.save(dataList);
+            expressNumRepository.saveAll(dataList);
         }
         return expressNumList;
     }
@@ -97,14 +99,16 @@ public class ExpressNumServiceImpl implements ExpressNumService {
 
     @Override
     public void updateStatus(Integer id, Integer code) {
-        ExpressNum expressNum = expressNumRepository.findOne(id);
+//        ExpressNum expressNum = expressNumRepository.findOne(id);
+        ExpressNum expressNum = expressNumRepository.getOne(id);
         expressNum.setStatus(code);
         expressNumRepository.save(expressNum);
     }
 
     @Override
     public ExpressNum findOne(Integer id) {
-        return expressNumRepository.findOne(id);
+//        return expressNumRepository.findOne(id);
+        return expressNumRepository.getOne(id);
     }
 
     @Override

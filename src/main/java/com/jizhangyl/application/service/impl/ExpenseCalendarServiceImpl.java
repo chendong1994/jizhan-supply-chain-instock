@@ -192,8 +192,10 @@ public class ExpenseCalendarServiceImpl implements ExpenseCalendarService {
 				}
 				
 			}
-			expenseCalendarRepository.save(listExpenseCalendar);
-			wxuserRepository.save(listWU);
+//			expenseCalendarRepository.save(listExpenseCalendar);
+			expenseCalendarRepository.saveAll(listExpenseCalendar);
+//			wxuserRepository.save(listWU);
+			wxuserRepository.saveAll(listWU);
 		}
 	}
 
@@ -637,9 +639,9 @@ public class ExpenseCalendarServiceImpl implements ExpenseCalendarService {
 		}
 
 		// 修改订单状态
-		orderMasterRepository.save(list2);
+		orderMasterRepository.saveAll(list2);
 		//复制信息到别表
-		orderMasterExpenseRepository.save(list3);
+		orderMasterExpenseRepository.saveAll(list3);
 		
 	}
 
@@ -997,7 +999,8 @@ public class ExpenseCalendarServiceImpl implements ExpenseCalendarService {
 	public Map<String, Object> detailsByExpenseCalendarId(Integer expenseCalendarId,PageRequest pageRequest){
 		 Map<String, Object> map = new HashMap<String, Object>();
 		 List<ExpenseCalendarDto> list = new ArrayList<ExpenseCalendarDto>();
-		ExpenseCalendar expenseCalendar = expenseCalendarRepository.findOne(expenseCalendarId);
+//		ExpenseCalendar expenseCalendar = expenseCalendarRepository.findOne(expenseCalendarId);
+		ExpenseCalendar expenseCalendar = expenseCalendarRepository.getOne(expenseCalendarId);
 		if(expenseCalendar == null){
 			throw new GlobalException(ResultEnum.USER_NOT_EXIST);
 		}

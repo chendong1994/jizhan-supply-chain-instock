@@ -56,7 +56,7 @@ public class SysRoleServiceImpl implements SysRoleService {
 
     @Override
     public SysRole findOne(Integer id) {
-        return sysRoleRepository.findOne(id);
+        return sysRoleRepository.getOne(id);
     }
     
     /**
@@ -130,7 +130,7 @@ public class SysRoleServiceImpl implements SysRoleService {
     @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     public void delete(Integer id) {
         // remove role
-        sysRoleRepository.delete(id);
+        sysRoleRepository.deleteById(id);
         // remove roleMenu
         sysRoleMenuRepository.removeByRoleId(id);
     }

@@ -2,12 +2,12 @@ package com.jizhangyl.application.service.impl;
 
 import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
 import com.jizhangyl.application.constant.RedisConstant;
-import com.jizhangyl.application.dataobject.primary.ExpressNumBestex;
+import com.jizhangyl.application.dataobject.primary.ExpressNumSf;
 import com.jizhangyl.application.enums.ExpressNumStatusEnum;
 import com.jizhangyl.application.enums.ResultEnum;
 import com.jizhangyl.application.exception.GlobalException;
-import com.jizhangyl.application.repository.primary.ExpressNumBestexRepository;
-import com.jizhangyl.application.service.ExpressNumBestexService;
+import com.jizhangyl.application.repository.primary.ExpressNumSfRepository;
+import com.jizhangyl.application.service.ExpressNumSfService;
 import com.jizhangyl.application.service.RedisLock;
 import com.jizhangyl.application.utils.SmsUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -25,10 +25,10 @@ import java.util.List;
  */
 @Slf4j
 @Service
-public class ExpressNumBestexServiceImpl implements ExpressNumBestexService {
+public class ExpressNumSfServiceImpl implements ExpressNumSfService {
 
     @Autowired
-    private ExpressNumBestexRepository expressNumBestexRepository;
+    private ExpressNumSfRepository expressNumSfRepository;
 
     @Autowired
     private SmsUtil smsUtil;
@@ -38,48 +38,48 @@ public class ExpressNumBestexServiceImpl implements ExpressNumBestexService {
 
     @Override
     public void delete(Integer id) {
-//        expressNumBestexRepository.delete(id);
-        expressNumBestexRepository.deleteById(id);
+//        expressNumSfRepository.delete(id);
+        expressNumSfRepository.deleteById(id);
     }
 
     @Override
-    public ExpressNumBestex save(ExpressNumBestex expressNumBestex) {
-        return expressNumBestexRepository.save(expressNumBestex);
+    public ExpressNumSf save(ExpressNumSf expressNumSf) {
+        return expressNumSfRepository.save(expressNumSf);
     }
 
     /**
      * 批量入库
-     * @param expressNumBestexList
+     * @param expressNumSfList
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public List<ExpressNumBestex> saveInBatch(List<ExpressNumBestex> expressNumBestexList) {
-        List<ExpressNumBestex> dataList = new ArrayList<>();
+    public List<ExpressNumSf> saveInBatch(List<ExpressNumSf> expressNumSfList) {
+        List<ExpressNumSf> dataList = new ArrayList<>();
 
-        for (ExpressNumBestex expressNumBestex : expressNumBestexList) {
+        for (ExpressNumSf expressNumSf : expressNumSfList) {
             if (dataList.size() == 1000) {
-//                expressNumBestexRepository.save(dataList);
-                expressNumBestexRepository.saveAll(dataList);
+//                expressNumSfRepository.save(dataList);
+                expressNumSfRepository.saveAll(dataList);
                 dataList.clear();
             }
-            dataList.add(expressNumBestex);
+            dataList.add(expressNumSf);
         }
         if (!dataList.isEmpty()) {
-//            expressNumBestexRepository.save(dataList);
-            expressNumBestexRepository.saveAll(dataList);
+//            expressNumSfRepository.save(dataList);
+            expressNumSfRepository.saveAll(dataList);
         }
-        return expressNumBestexList;
+        return expressNumSfList;
     }
 
     @Override
-    public ExpressNumBestex findUnused() {
+    public ExpressNumSf findUnused() {
         long time = System.currentTimeMillis() + RedisConstant.TIMEOUT;
         if (!redisLock.lock(this.getClass(), String.valueOf(time))) {
             throw new GlobalException(ResultEnum.GET_EXPRESS_NUM_FAIL);
         }
 
-        Integer remainSize = expressNumBestexRepository.countByStatus(ExpressNumStatusEnum.UNUSED.getCode());
+        Integer remainSize = expressNumSfRepository.countByStatus(ExpressNumStatusEnum.UNUSED.getCode());
         log.warn("【飞翩物流】剩余可用单号: {} 个", remainSize);
         if (remainSize < 2) {
             // 触发短信操作 -> 18516184686
@@ -91,39 +91,39 @@ public class ExpressNumBestexServiceImpl implements ExpressNumBestexService {
             }
             log.warn("【飞翩物流】单号即将用尽, 请尽快补充, 仅剩: {} 个", remainSize);
         }
-        ExpressNumBestex expressNumBestex = expressNumBestexRepository.findTop1ByStatus(ExpressNumStatusEnum.UNUSED.getCode());
+        ExpressNumSf expressNumSf = expressNumSfRepository.findTop1ByStatus(ExpressNumStatusEnum.UNUSED.getCode());
 
         redisLock.unlock(this.getClass(), String.valueOf(time));
 
-        return expressNumBestex;
+        return expressNumSf;
     }
 
     @Override
     public void updateStatus(Integer id, Integer code) {
-//        ExpressNumBestex expressNumBestex = expressNumBestexRepository.findOne(id);
-        ExpressNumBestex expressNumBestex = expressNumBestexRepository.getOne(id);
-        expressNumBestex.setStatus(code);
-        expressNumBestexRepository.save(expressNumBestex);
+//        ExpressNumSf expressNumSf = expressNumSfRepository.findOne(id);
+        ExpressNumSf expressNumSf = expressNumSfRepository.getOne(id);
+        expressNumSf.setStatus(code);
+        expressNumSfRepository.save(expressNumSf);
     }
 
     @Override
-    public ExpressNumBestex findOne(Integer id) {
-//        return expressNumBestexRepository.findOne(id);
-        return expressNumBestexRepository.getOne(id);
+    public ExpressNumSf findOne(Integer id) {
+//        return expressNumSfRepository.findOne(id);
+        return expressNumSfRepository.getOne(id);
     }
 
     @Override
-    public ExpressNumBestex findByExpNum(String expNum) {
-        return expressNumBestexRepository.findByExpNum(expNum);
+    public ExpressNumSf findByExpNum(String expNum) {
+        return expressNumSfRepository.findByExpNum(expNum);
     }
 
     @Override
-    public List<ExpressNumBestex> findAll() {
-        return expressNumBestexRepository.findAll();
+    public List<ExpressNumSf> findAll() {
+        return expressNumSfRepository.findAll();
     }
 
     @Override
     public Integer countByStatus(Integer status) {
-        return expressNumBestexRepository.countByStatus(status);
+        return expressNumSfRepository.countByStatus(status);
     }
 }

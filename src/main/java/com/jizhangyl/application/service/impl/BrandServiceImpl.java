@@ -26,7 +26,7 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     public Brand findOne(Integer brandId) {
-        return brandRepository.findOne(brandId);
+        return brandRepository.getOne(brandId);
     }
 
     @Override
@@ -57,11 +57,13 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     public void delete(Integer id) {
-        Brand brand = brandRepository.findOne(id);
+//        Brand brand = brandRepository.findOne(id);
+        Brand brand = brandRepository.getOne(id);
         if (brand == null) {
             throw new GlobalException(ResultEnum.BRAND_NOT_EXIST);
         }
-        brandRepository.delete(id);
+//        brandRepository.delete(id);
+        brandRepository.deleteById(id);
     }
 
     @Override

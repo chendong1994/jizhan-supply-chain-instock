@@ -47,7 +47,8 @@ public class WxuserServiceImpl implements WxuserService {
         if (id == null) {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        return wxuserRepository.findOne(id);
+//        return wxuserRepository.findOne(id);
+        return wxuserRepository.getOne(id);
     }
 
     @Override

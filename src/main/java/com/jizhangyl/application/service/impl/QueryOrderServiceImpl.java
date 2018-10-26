@@ -436,9 +436,11 @@ public class QueryOrderServiceImpl implements QueryOrderService {
     public List<SenderDTO> findOrderSenderByOrderId(String orderId) {
         List<SenderDTO> senderList = new ArrayList<SenderDTO>(1);
         // 1.根据订单id查出订单的信息
-        OrderMaster orderMaster = orderMasterRepository.findOne(orderId);
+//        OrderMaster orderMaster = orderMasterRepository.findOne(orderId);
+        OrderMaster orderMaster = orderMasterRepository.getOne(orderId);
         // 2.根据订单信息中的buyerAddrId查出发件人的相关信息
-        WxuserSender wxuserSender = wxuserSenderRepository.findOne(orderMaster.getBuyerAddrId());
+//        WxuserSender wxuserSender = wxuserSenderRepository.findOne(orderMaster.getBuyerAddrId());
+        WxuserSender wxuserSender = wxuserSenderRepository.getOne(orderMaster.getBuyerAddrId());
         // 3.找到发件人信息中的发件人名称和发件人电话
         SenderDTO senderDTO = new SenderDTO();
         if (wxuserSender != null) {

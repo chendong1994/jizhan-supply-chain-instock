@@ -16,7 +16,7 @@ spring:
     password: Jizhangyl1qaz@WSX
 wechat:
   notifyUrl: http://www.jizhangyl.com/jizhangyl/pay/notify
-projectUrl:
+project-url:
   wechatOpenAuthorize: https://www.jizhangyl.com
   jizhangyl: https://www.jizhangyl.com
 server:

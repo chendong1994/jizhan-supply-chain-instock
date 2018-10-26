@@ -1,5 +1,6 @@
 server:
-  context-path: /jizhangyl
+  servlet:
+    context-path: /jizhangyl
 #  ssl:
 #    key-store: classpath:214912339260985.pfx
 #    key-store-password: 214912339260985
@@ -26,22 +27,22 @@ spring:
     show-sql: true
   jackson:
     default-property-inclusion: non_null
-  http:
-    multipart:
-      max-file-size: 10MB
-      max-request-size: 10MB
   mvc:
     view:
       suffix: .html
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
 #      prefix: /
 logging:
   level:
     org.springframework.web: DEBUG
     com.github.binarywang.demo.wx.pay: DEBUG
     com.github.binarywang.wxpay: DEBUG
-management:
-  security:
-    enabled: false
+#management:
+#  security:
+#    enabled: false
   health:
     redis:
       enabled: false
@@ -55,7 +56,7 @@ wechat:
   keyPath: classpath:apiclient_cert.p12
   expressAppId: wx0c0a9004e7068154
   expressAppSecret: 6b65580d351481d15424714a2194a420
-addressResolve:
+address-resolve:
   host: http://kop.kuaidihelp.com
   path: /api
   appId: 100771
@@ -85,4 +86,4 @@ sms:
     expressNotify: SMS_144152552
     certRefuse: SMS_143868498
     orderNotify: SMS_145910783
-notifyInterval: 3
+notify-interval: 3

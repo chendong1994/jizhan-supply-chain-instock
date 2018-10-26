@@ -78,7 +78,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/order")
 public class OrderController {
 
-    @Value("${notifyInterval:5}")
+    @Value("${notify-interval:5}")
     private int notifyInterval;
 
     @Autowired

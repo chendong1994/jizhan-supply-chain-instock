@@ -221,7 +221,7 @@ public class RepositoryDeliveryServiceImpl implements RepositoryDeliveryService 
     @Transactional
     @Override
     public List<RepositoryDelivery> save(List<RepositoryDelivery> repositoryDeliveryList) {
-        List<RepositoryDelivery> result = repositoryDeliveryRepository.save(repositoryDeliveryList);
+        List<RepositoryDelivery> result = repositoryDeliveryRepository.saveAll(repositoryDeliveryList);
         if (CollectionUtils.isEmpty(result)) {
             throw new GlobalException(ResultEnum.DELIVERY_RECORD_SAVE_FAIL);
         }

@@ -38,7 +38,7 @@ public class ExpressNumTtkdexServiceImpl implements ExpressNumTtkdexService {
 
     @Override
     public void delete(Integer id) {
-        expressNumTtkdexRepository.delete(id);
+        expressNumTtkdexRepository.deleteById(id);
     }
 
     @Override
@@ -58,13 +58,15 @@ public class ExpressNumTtkdexServiceImpl implements ExpressNumTtkdexService {
 
         for (ExpressNumTtkdex expressNumTtkdex : expressNumTtkdexList) {
             if (dataList.size() == 1000) {
-                expressNumTtkdexRepository.save(dataList);
+//                expressNumTtkdexRepository.save(dataList);
+                expressNumTtkdexRepository.saveAll(dataList);
                 dataList.clear();
             }
             dataList.add(expressNumTtkdex);
         }
         if (!dataList.isEmpty()) {
-            expressNumTtkdexRepository.save(dataList);
+//            expressNumTtkdexRepository.save(dataList);
+            expressNumTtkdexRepository.saveAll(dataList);
         }
         return expressNumTtkdexList;
     }
@@ -97,14 +99,15 @@ public class ExpressNumTtkdexServiceImpl implements ExpressNumTtkdexService {
 
     @Override
     public void updateStatus(Integer id, Integer code) {
-        ExpressNumTtkdex expressNumTtkdex = expressNumTtkdexRepository.findOne(id);
+        ExpressNumTtkdex expressNumTtkdex = expressNumTtkdexRepository.getOne(id);
         expressNumTtkdex.setStatus(code);
         expressNumTtkdexRepository.save(expressNumTtkdex);
     }
 
     @Override
     public ExpressNumTtkdex findOne(Integer id) {
-        return expressNumTtkdexRepository.findOne(id);
+//        return expressNumTtkdexRepository.findOne(id);
+        return expressNumTtkdexRepository.getOne(id);
     }
 
     @Override

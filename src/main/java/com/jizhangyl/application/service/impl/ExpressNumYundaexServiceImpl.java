@@ -38,7 +38,8 @@ public class ExpressNumYundaexServiceImpl implements ExpressNumYundaexService {
 
     @Override
     public void delete(Integer id) {
-        expressNumYundaexRepository.delete(id);
+//        expressNumYundaexRepository.delete(id);
+        expressNumYundaexRepository.deleteById(id);
     }
 
     @Override
@@ -58,13 +59,15 @@ public class ExpressNumYundaexServiceImpl implements ExpressNumYundaexService {
 
         for (ExpressNumYundaex expressNumYundaex : expressNumYundaexList) {
             if (dataList.size() == 1000) {
-                expressNumYundaexRepository.save(dataList);
+//                expressNumYundaexRepository.save(dataList);
+                expressNumYundaexRepository.saveAll(dataList);
                 dataList.clear();
             }
             dataList.add(expressNumYundaex);
         }
         if (!dataList.isEmpty()) {
-            expressNumYundaexRepository.save(dataList);
+//            expressNumYundaexRepository.save(dataList);
+            expressNumYundaexRepository.saveAll(dataList);
         }
         return expressNumYundaexList;
     }
@@ -97,14 +100,16 @@ public class ExpressNumYundaexServiceImpl implements ExpressNumYundaexService {
 
     @Override
     public void updateStatus(Integer id, Integer code) {
-        ExpressNumYundaex expressNumYundaex = expressNumYundaexRepository.findOne(id);
+//        ExpressNumYundaex expressNumYundaex = expressNumYundaexRepository.findOne(id);
+        ExpressNumYundaex expressNumYundaex = expressNumYundaexRepository.getOne(id);
         expressNumYundaex.setStatus(code);
         expressNumYundaexRepository.save(expressNumYundaex);
     }
 
     @Override
     public ExpressNumYundaex findOne(Integer id) {
-        return expressNumYundaexRepository.findOne(id);
+//        return expressNumYundaexRepository.findOne(id);
+        return expressNumYundaexRepository.getOne(id);
     }
 
     @Override

@@ -140,7 +140,8 @@ public class BackOrderBatchServiceImpl implements BackOrderBatchService{
 		orderBatch.setOrderAmountAll(orderAmountAll);
 		orderBatch.setOpenId(list.get(0).getBuyerOpenid());
 		orderBatchRepository.save(orderBatch);
-		orderBatchRelationRepository.save(listOrderBaych);
+//		orderBatchRelationRepository.save(listOrderBaych);
+        orderBatchRelationRepository.saveAll(listOrderBaych);
 		
 		//2.================调用微信预支付下单接口，批量下单，生成一个组装的订单号，生成付钱二维码，返回前段
 		
@@ -226,8 +227,9 @@ public class BackOrderBatchServiceImpl implements BackOrderBatchService{
 				userAddrList.add(wxuserAddr);
 			}
 		}
-		userAddrList = wxuserAddrRepository.save(userAddrList);
-		
+//		userAddrList = wxuserAddrRepository.save(userAddrList);
+		userAddrList = wxuserAddrRepository.saveAll(userAddrList);
+
 		return userAddrList;
 	}
 
@@ -245,7 +247,7 @@ public class BackOrderBatchServiceImpl implements BackOrderBatchService{
             notifyResult = wxPayService.parseOrderNotifyResult(notifyData);
             log.info("【微信支付】异步通知，notifyResult = {}", JsonUtil.toJson(notifyResult));
             // 查询订单
-            OrderBatch orderBatch = orderBatchRepository.findOne(notifyResult.getOutTradeNo());
+            OrderBatch orderBatch = orderBatchRepository.getOne(notifyResult.getOutTradeNo());
 
             // 判断订单是否存在
             if (orderBatch == null) {
@@ -268,7 +270,8 @@ public class BackOrderBatchServiceImpl implements BackOrderBatchService{
             for(OrderBatchRelation v : listOrderBatchRelation){
             	ids.add(v.getOrderId());
             }
-            List<OrderMaster> listOrderMaster = orderMasterRepository.findAll(ids);
+//            List<OrderMaster> listOrderMaster = orderMasterRepository.findAll(ids);
+            List<OrderMaster> listOrderMaster = orderMasterRepository.findAllById(ids);
             List<OrderDto> listOrderDto = OrderMaster2OrderDtoConverter.convert(listOrderMaster);
 
             for(OrderDto orderDto : listOrderDto){
@@ -451,7 +454,7 @@ public class BackOrderBatchServiceImpl implements BackOrderBatchService{
         	return null;
         }
 		
-        OrderBatch orderBatch = orderBatchRepository.findOne(orderBatchId);
+        OrderBatch orderBatch = orderBatchRepository.getOne(orderBatchId);
         Wxuser wxuser = wxuserRepository.findByOpenId(orderBatch.getOpenId());
         String originFileName = wxuser.getNickName();
 		HttpHeaders headers = null;

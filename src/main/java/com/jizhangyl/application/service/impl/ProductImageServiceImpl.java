@@ -50,7 +50,8 @@ public class ProductImageServiceImpl implements ProductImageService {
         }
 
         if (!CollectionUtils.isEmpty(productImageList)) {
-            List<ProductImage> result = productImageRepository.save(productImageList);
+//            List<ProductImage> result = productImageRepository.save(productImageList);
+            List<ProductImage> result = productImageRepository.saveAll(productImageList);
             if (CollectionUtils.isEmpty(result)) {
                 throw new GlobalException(ResultEnum.PRODUCT_IMAGE_ADD_FAIL);
             }

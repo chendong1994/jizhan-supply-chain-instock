@@ -73,11 +73,13 @@ public class CartServiceImpl implements CartService {
         if (cartCellId == null) {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        Cart cart = cartRepository.findOne(cartCellId);
+//        Cart cart = cartRepository.findOne(cartCellId);
+        Cart cart = cartRepository.getOne(cartCellId);
         if (cart == null) {
             throw new GlobalException(ResultEnum.CART_ERROR);
         }
-        cartRepository.delete(cartCellId);
+//        cartRepository.delete(cartCellId);
+        cartRepository.deleteById(cartCellId);
     }
 
     /**
@@ -88,7 +90,8 @@ public class CartServiceImpl implements CartService {
     @Override
     public void increase(Integer cartCellId) {
         // 1. 查询商品库存
-        Cart cart = cartRepository.findOne(cartCellId);
+//        Cart cart = cartRepository.findOne(cartCellId);
+        Cart cart = cartRepository.getOne(cartCellId);
         if (cart == null) {
             throw new GlobalException(ResultEnum.CART_ERROR);
         }
@@ -113,7 +116,8 @@ public class CartServiceImpl implements CartService {
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void reduce(Integer cartCellId) {
-        Cart cart = cartRepository.findOne(cartCellId);
+//        Cart cart = cartRepository.findOne(cartCellId);
+        Cart cart = cartRepository.getOne(cartCellId);
         if (cart == null) {
             throw new GlobalException(ResultEnum.CART_ERROR);
         }
@@ -195,6 +199,7 @@ public class CartServiceImpl implements CartService {
                 }
             }
         }
-        cartRepository.delete(delCartList);
+//        cartRepository.delete(delCartList);
+        cartRepository.deleteAll(delCartList);
     }
 }

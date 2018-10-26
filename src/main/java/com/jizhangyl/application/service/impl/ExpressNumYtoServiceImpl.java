@@ -38,7 +38,8 @@ public class ExpressNumYtoServiceImpl implements ExpressNumYtoService {
 
     @Override
     public void delete(Integer id) {
-        expressNumYtoRepository.delete(id);
+//        expressNumYtoRepository.delete(id);
+        expressNumYtoRepository.deleteById(id);
     }
 
     @Override
@@ -58,13 +59,14 @@ public class ExpressNumYtoServiceImpl implements ExpressNumYtoService {
 
         for (ExpressNumYto expressNumYto : expressNumYtoList) {
             if (dataList.size() == 1000) {
-                expressNumYtoRepository.save(dataList);
+//                expressNumYtoRepository.save(dataList);
+                expressNumYtoRepository.saveAll(dataList);
                 dataList.clear();
             }
             dataList.add(expressNumYto);
         }
         if (!dataList.isEmpty()) {
-            expressNumYtoRepository.save(dataList);
+            expressNumYtoRepository.saveAll(dataList);
         }
         return expressNumYtoList;
     }
@@ -97,14 +99,14 @@ public class ExpressNumYtoServiceImpl implements ExpressNumYtoService {
 
     @Override
     public void updateStatus(Integer id, Integer code) {
-        ExpressNumYto expressNumYto = expressNumYtoRepository.findOne(id);
+        ExpressNumYto expressNumYto = expressNumYtoRepository.getOne(id);
         expressNumYto.setStatus(code);
         expressNumYtoRepository.save(expressNumYto);
     }
 
     @Override
     public ExpressNumYto findOne(Integer id) {
-        return expressNumYtoRepository.findOne(id);
+        return expressNumYtoRepository.getOne(id);
     }
 
     @Override

@@ -19,7 +19,7 @@ public class OaBillServiceImpl implements OaBillService{
 
 	@Override
 	public OaBill findByOaBillId(Integer oaBillId) {
-		return oaBillRepository.findOne(oaBillId);
+		return oaBillRepository.getOne(oaBillId);
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class OaBillServiceImpl implements OaBillService{
 	@Override
 	public OaBill addOaBill(OaBill oaBill) {
 		if(oaBill.getOaBillId() != null){
-			OaBill bb = oaBillRepository.findOne(oaBill.getOaBillId());
+			OaBill bb = oaBillRepository.getOne(oaBill.getOaBillId());
 			if(bb == null){
 				throw new RuntimeException("参数错误");
 			}

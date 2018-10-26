@@ -391,7 +391,7 @@ public class OrderImportServiceImpl {
         orderImportMaster.setId(masterId);
 
         // 导入详情入库
-        List<OrderImportDetail> resultList = orderImportDetailRepository.save(orderImportDetailList);
+        List<OrderImportDetail> resultList = orderImportDetailRepository.saveAll(orderImportDetailList);
         OrderImportMaster result = orderImportMasterRepository.save(orderImportMaster);
         if (CollectionUtils.isEmpty(resultList) || result == null) {
             log.error("【Excel导入】异常, orderImportDto = {}", orderImportDto);

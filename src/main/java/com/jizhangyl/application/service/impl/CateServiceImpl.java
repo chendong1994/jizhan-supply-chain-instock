@@ -29,7 +29,7 @@ public class CateServiceImpl implements CateService {
 
     @Override
     public Cate findOne(Integer cateId) {
-        return cateRepository.findOne(cateId);
+        return cateRepository.getOne(cateId);
     }
 
     @Override
@@ -46,11 +46,13 @@ public class CateServiceImpl implements CateService {
         if (cateId == null) {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        Cate cate = cateRepository.findOne(cateId);
+//        Cate cate = cateRepository.findOne(cateId);
+        Cate cate = cateRepository.getOne(cateId);
         if (cate == null) {
             throw new GlobalException(ResultEnum.CATE_NOT_EXIST);
         }
-        cateRepository.delete(cateId);
+//        cateRepository.delete(cateId);
+        cateRepository.deleteById(cateId);
     }
 
     @Transactional(rollbackFor = Exception.class)
@@ -61,13 +63,15 @@ public class CateServiceImpl implements CateService {
         }
         List<Cate> cateList = new ArrayList<>();
         for (Integer cateId : cateIdList) {
-            Cate cate = cateRepository.findOne(cateId);
+//            Cate cate = cateRepository.findOne(cateId);
+            Cate cate = cateRepository.getOne(cateId);
             if (cate == null) {
                 throw new GlobalException(ResultEnum.CATE_NOT_EXIST.getCode(), "类目编号：" + cateId);
             }
             cateList.add(cate);
         }
-        cateRepository.delete(cateList);
+//        cateRepository.delete(cateList);
+        cateRepository.deleteAll(cateList);
     }
 
     @Override
@@ -75,7 +79,8 @@ public class CateServiceImpl implements CateService {
         if (cateForm == null) {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        Cate cate = cateRepository.findOne(cateForm.getId());
+//        Cate cate = cateRepository.findOne(cateForm.getId());
+        Cate cate = cateRepository.getOne(cateForm.getId());
         if (cate == null) {
             throw new GlobalException(ResultEnum.CATE_NOT_EXIST);
         }

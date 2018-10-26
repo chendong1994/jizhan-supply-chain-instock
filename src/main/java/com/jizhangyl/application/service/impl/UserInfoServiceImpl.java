@@ -79,7 +79,8 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public UserInfoDTO getUserInfo(Integer userId) {
         UserInfoDTO userInfoDTO = new UserInfoDTO();
-        UserInfo userInfo = userInfoRepository.findOne(userId);
+//        UserInfo userInfo = userInfoRepository.findOne(userId);
+        UserInfo userInfo = userInfoRepository.getOne(userId);
         if (userInfo == null) {
             log.info("【id为" + userId + "的用户不存在】");
             throw new GlobalException();
@@ -189,7 +190,8 @@ public class UserInfoServiceImpl implements UserInfoService {
             log.info("【逻辑删除用户】用户id为空");
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        UserInfo userInfo = userInfoRepository.findOne(userId);
+//        UserInfo userInfo = userInfoRepository.findOne(userId);
+        UserInfo userInfo = userInfoRepository.getOne(userId);
         if (userInfo == null) {
             throw new GlobalException(ResultEnum.USER_NOT_EXIST);
         }
@@ -216,7 +218,7 @@ public class UserInfoServiceImpl implements UserInfoService {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
 
-        UserInfo user = userInfoRepository.findOne(userInfo.getId());
+        UserInfo user = userInfoRepository.getOne(userInfo.getId());
         if (user == null) {
             log.info("【更新用户】要更新的用户在数据库中不存在原始记录");
             throw new GlobalException(ResultEnum.USER_NOT_EXIST);

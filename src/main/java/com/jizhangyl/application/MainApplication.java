@@ -7,10 +7,9 @@ import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
+import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -24,7 +23,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableCaching
 @EnableScheduling
-public class MainApplication implements EmbeddedServletContainerCustomizer {
+public class MainApplication implements WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> {
 
     public static void main(String[] args) {
         SpringApplication.run(MainApplication.class, args);
@@ -32,8 +31,8 @@ public class MainApplication implements EmbeddedServletContainerCustomizer {
 
     //拦截所有请求
     @Bean
-    public EmbeddedServletContainerFactory servletContainer() {
-        TomcatEmbeddedServletContainerFactory tomcat = new TomcatEmbeddedServletContainerFactory() {
+    public TomcatServletWebServerFactory servletContainer() {
+        TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
             @Override
             protected void postProcessContext(Context context) {
                 SecurityConstraint constraint = new SecurityConstraint();
@@ -51,7 +50,7 @@ public class MainApplication implements EmbeddedServletContainerCustomizer {
     // 配置 http 转 https
     @Bean
     public Connector httpConnector() {
-        Connector connector = new Connector(TomcatEmbeddedServletContainerFactory.DEFAULT_PROTOCOL);
+        Connector connector = new Connector(TomcatServletWebServerFactory.DEFAULT_PROTOCOL);
         connector.setScheme("http");
         //Connector监听的http的端口号
         connector.setPort(80);
@@ -63,20 +62,7 @@ public class MainApplication implements EmbeddedServletContainerCustomizer {
 
     //这里设置默认端口为443，即https的，如果这里不设置，会https和http争夺80端口
     @Override
-    public void customize(ConfigurableEmbeddedServletContainer container) {
-        container.setPort(443);
+    public void customize(ConfigurableServletWebServerFactory factory) {
+        factory.setPort(443);
     }
-
-    //Tomcat large file upload connection reset
-    /*@Bean
-    public TomcatEmbeddedServletContainerFactory tomcatEmbedded() {
-        TomcatEmbeddedServletContainerFactory tomcat = new TomcatEmbeddedServletContainerFactory();
-        tomcat.addConnectorCustomizers((TomcatConnectorCustomizer) connector -> {
-            if ((connector.getProtocolHandler() instanceof AbstractHttp11Protocol<?>)) {
-                //-1 means unlimited
-                ((AbstractHttp11Protocol<?>) connector.getProtocolHandler()).setMaxSwallowSize(-1);
-            }
-        });
-        return tomcat;
-    }*/
 }

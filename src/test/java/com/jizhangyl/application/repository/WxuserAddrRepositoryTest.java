@@ -35,7 +35,7 @@ public class WxuserAddrRepositoryTest extends MainApplicationTests {
         wxuserAddr.setAddrLabel("自定义标签");
         wxuserAddr.setIsDefault(AddrTypeEnum.DEFAULT_ADDRESS.getCode().shortValue());
 
-        List<WxuserAddr> result = repository.save(Arrays.asList(wxuserAddr));
+        List<WxuserAddr> result = repository.saveAll(Arrays.asList(wxuserAddr));
         Assert.assertNotEquals(0, result.size());
 
     }

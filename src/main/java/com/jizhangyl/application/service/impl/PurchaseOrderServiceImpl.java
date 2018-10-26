@@ -257,7 +257,8 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 
     @Override
     public void cancel(String orderId) {
-        PurchaseOrderMaster purchaseOrderMaster = purchaseOrderMasterRepository.findOne(orderId);
+//        PurchaseOrderMaster purchaseOrderMaster = purchaseOrderMasterRepository.findOne(orderId);
+        PurchaseOrderMaster purchaseOrderMaster = purchaseOrderMasterRepository.getOne(orderId);
         if (purchaseOrderMaster == null) {
             throw new GlobalException(ResultEnum.PURCHASE_ORDER_NOT_EXIST);
         }
@@ -277,7 +278,8 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
      */
     @Override
     public void paid(String orderId, String realAmount) {
-        PurchaseOrderMaster purchaseOrderMaster = purchaseOrderMasterRepository.findOne(orderId);
+//        PurchaseOrderMaster purchaseOrderMaster = purchaseOrderMasterRepository.findOne(orderId);
+        PurchaseOrderMaster purchaseOrderMaster = purchaseOrderMasterRepository.getOne(orderId);
         if (purchaseOrderMaster == null) {
             throw new GlobalException(ResultEnum.PURCHASE_ORDER_NOT_EXIST);
         }
@@ -315,7 +317,7 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
         }
 
         String orderId = purchaseOrderDto.getOrderId();
-        PurchaseOrderMaster purchaseOrderMaster = purchaseOrderMasterRepository.findOne(orderId);
+        PurchaseOrderMaster purchaseOrderMaster = purchaseOrderMasterRepository.getOne(orderId);
         if (purchaseOrderMaster == null) {
             throw new GlobalException(ResultEnum.PURCHASE_ORDER_NOT_EXIST);
         }
@@ -385,7 +387,7 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
             }
 
             // 确认详情批量入库
-            purchaseConfirmDetailRepository.save(saveList);
+            purchaseConfirmDetailRepository.saveAll(saveList);
 
             // 保存确认记录
             PurchaseOrderConfirm purchaseOrderConfirm = new PurchaseOrderConfirm();
@@ -490,7 +492,8 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
         }
 
         String orderId = purchaseOrderDto.getOrderId();
-        PurchaseOrderMaster purchaseOrderMaster = purchaseOrderMasterRepository.findOne(orderId);
+//        PurchaseOrderMaster purchaseOrderMaster = purchaseOrderMasterRepository.findOne(orderId);
+        PurchaseOrderMaster purchaseOrderMaster = purchaseOrderMasterRepository.getOne(orderId);
         if (purchaseOrderMaster == null) {
             throw new GlobalException(ResultEnum.PURCHASE_ORDER_NOT_EXIST);
         }
@@ -550,7 +553,8 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
             }
 
             // 确认详情批量入库
-            purchasePayDetailRepository.save(saveList);
+//            purchasePayDetailRepository.save(saveList);
+            purchasePayDetailRepository.saveAll(saveList);
 
             // 保存确认记录
             PurchaseOrderPay purchaseOrderPay = new PurchaseOrderPay();
@@ -658,7 +662,8 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 
     @Override
     public void deletePurchaseOrder(String orderId) {
-        purchaseOrderMasterRepository.delete(orderId);
+//        purchaseOrderMasterRepository.delete(orderId);
+        purchaseOrderMasterRepository.deleteById(orderId);
     }
 
     @Override

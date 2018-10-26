@@ -38,7 +38,7 @@ public class ExpressNumZtoServiceImpl implements ExpressNumZtoService {
 
     @Override
     public void delete(Integer id) {
-        expressNumZtoRepository.delete(id);
+        expressNumZtoRepository.deleteById(id);
     }
 
     @Override
@@ -58,13 +58,15 @@ public class ExpressNumZtoServiceImpl implements ExpressNumZtoService {
 
         for (ExpressNumZto expressNumZto : expressNumZtoList) {
             if (dataList.size() == 1000) {
-                expressNumZtoRepository.save(dataList);
+//                expressNumZtoRepository.save(dataList);
+                expressNumZtoRepository.saveAll(dataList);
                 dataList.clear();
             }
             dataList.add(expressNumZto);
         }
         if (!dataList.isEmpty()) {
-            expressNumZtoRepository.save(dataList);
+//            expressNumZtoRepository.save(dataList);
+            expressNumZtoRepository.saveAll(dataList);
         }
         return expressNumZtoList;
     }
@@ -97,14 +99,14 @@ public class ExpressNumZtoServiceImpl implements ExpressNumZtoService {
 
     @Override
     public void updateStatus(Integer id, Integer code) {
-        ExpressNumZto expressNumZto = expressNumZtoRepository.findOne(id);
+        ExpressNumZto expressNumZto = expressNumZtoRepository.getOne(id);
         expressNumZto.setStatus(code);
         expressNumZtoRepository.save(expressNumZto);
     }
 
     @Override
     public ExpressNumZto findOne(Integer id) {
-        return expressNumZtoRepository.findOne(id);
+        return expressNumZtoRepository.getOne(id);
     }
 
     @Override

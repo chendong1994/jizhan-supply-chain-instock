@@ -14,7 +14,7 @@ import javax.persistence.Id;
 @Data
 @Entity
 @DynamicUpdate
-public class ExpressNumBestex {
+public class ExpressNumSf {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

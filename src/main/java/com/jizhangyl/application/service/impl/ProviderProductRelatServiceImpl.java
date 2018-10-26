@@ -102,7 +102,7 @@ public class ProviderProductRelatServiceImpl implements ProviderProductRelatServ
 //        ProviderProductRelat providerProductRelat = new ProviderProductRelat();
 //        BeanUtils.copyProperties(providerProductRelatForm, providerProductRelat);
 
-        ProviderProductRelat providerProductRelat = repository.findOne(providerProductRelatForm.getId());
+        ProviderProductRelat providerProductRelat = repository.getOne(providerProductRelatForm.getId());
         providerProductRelat.setPurchasePrice(providerProductRelatForm.getPurchasePrice());
         providerProductRelat.setProductStock(providerProductRelatForm.getProductStock());
 
@@ -152,11 +152,11 @@ public class ProviderProductRelatServiceImpl implements ProviderProductRelatServ
     @Override
     public void delete(Integer id) {
         try {
-            ProviderProductRelat providerProductRelat = repository.findOne(id);
+            ProviderProductRelat providerProductRelat = repository.getOne(id);
             if (providerProductRelat == null) {
                 throw new GlobalException(ResultEnum.REPOSITORY_DELETE_ERROR);
             }
-            repository.delete(id);
+            repository.deleteById(id);
         } catch (Exception e) {
             throw new GlobalException(ResultEnum.REPOSITORY_DELETE_ERROR);
         }

@@ -28,7 +28,7 @@ public class PayCertServiceImpl implements PayCertService {
     @Transactional(rollbackFor = Exception.class)
     @Override
     public List<PayCert> save(List<PayCert> payCertList) {
-        return payCertRepository.save(payCertList);
+        return payCertRepository.saveAll(payCertList);
     }
 
     @Override

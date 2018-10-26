@@ -117,7 +117,7 @@ public class ShopServiceImpl implements ShopService {
         if (shopId == null) {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        Shop shop = repository.findOne(shopId);
+        Shop shop = repository.getOne(shopId);
         if (shop == null) {
             throw new GlobalException(ResultEnum.PRODUCT_NOT_EXIST);
         }
@@ -135,7 +135,7 @@ public class ShopServiceImpl implements ShopService {
         if (productId == null) {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        return repository.findOne(productId);
+        return repository.getOne(productId);
     }
 
     @Transactional
@@ -207,7 +207,7 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public void increaseStock(List<OrderDetail> orderDetailList) {
         for (OrderDetail orderDetail : orderDetailList) {
-            Shop shop = repository.findOne(Integer.valueOf(orderDetail.getProductId()));
+            Shop shop = repository.getOne(Integer.valueOf(orderDetail.getProductId()));
             if (shop == null) {
                 throw new GlobalException(ResultEnum.PRODUCT_NOT_EXIST);
             }
@@ -225,7 +225,7 @@ public class ShopServiceImpl implements ShopService {
     @Transactional(rollbackFor = Exception.class)
     public void decreaseStock(List<OrderDetail> orderDetailList) {
         for (OrderDetail orderDetail : orderDetailList) {
-            Shop shop = repository.findOne(Integer.valueOf(orderDetail.getProductId()));
+            Shop shop = repository.getOne(Integer.valueOf(orderDetail.getProductId()));
             if (shop == null) {
                 throw new GlobalException(ResultEnum.PRODUCT_NOT_EXIST);
             }
@@ -271,7 +271,7 @@ public class ShopServiceImpl implements ShopService {
             }
             return shop;
         }).collect(Collectors.toList());
-        List<Shop> saveResult = repository.save(shopList);
+        List<Shop> saveResult = repository.saveAll(shopList);
 
         return saveResult;
     }
@@ -287,7 +287,7 @@ public class ShopServiceImpl implements ShopService {
             String shopImageUrl = shop.getShopImage();
 
             // 删除记录
-            repository.delete(id);
+            repository.deleteById(id);
 
             // 删除 oss 旧图
             if (!StringUtils.isEmpty(shopImageUrl)) {
@@ -307,7 +307,7 @@ public class ShopServiceImpl implements ShopService {
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void up(Integer productId) {
-        Shop shop = repository.findOne(productId);
+        Shop shop = repository.getOne(productId);
         if (shop == null) {
             throw new GlobalException(ResultEnum.PRODUCT_NOT_EXIST);
         }
@@ -329,7 +329,7 @@ public class ShopServiceImpl implements ShopService {
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void down(Integer productId) {
-        Shop shop = repository.findOne(productId);
+        Shop shop = repository.getOne(productId);
         if (shop == null) {
             throw new GlobalException(ResultEnum.PRODUCT_NOT_EXIST);
         }

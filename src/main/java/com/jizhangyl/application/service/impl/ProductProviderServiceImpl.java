@@ -33,7 +33,8 @@ public class ProductProviderServiceImpl implements ProductProviderService {
 
     @Override
     public ProductProvider findOne(Integer providerId) {
-        return productProviderRepository.findOne(providerId);
+//        return productProviderRepository.findOne(providerId);
+        return productProviderRepository.getOne(providerId);
     }
 
     @Override
@@ -61,9 +62,11 @@ public class ProductProviderServiceImpl implements ProductProviderService {
     @Override
     public void delete(Integer providerId) {
         try {
-            productProviderRepository.delete(providerId);
+//            productProviderRepository.delete(providerId);
+            productProviderRepository.deleteById(providerId);
             List<ProviderProductRelat> providerProductRelatList = providerProductRelatRepository.findByProviderId(providerId);
-            providerProductRelatRepository.delete(providerProductRelatList);
+//            providerProductRelatRepository.delete(providerProductRelatList);
+            providerProductRelatRepository.deleteAll(providerProductRelatList);
         } catch (Exception e) {
             log.error("【供应商删除】删除失败: {}", e.getMessage());
             e.printStackTrace();

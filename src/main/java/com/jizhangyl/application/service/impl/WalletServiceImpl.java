@@ -47,7 +47,8 @@ public class WalletServiceImpl implements WalletService {
 			}
 			wallet.setAmount(amo);
 		}
-		walletRepository.save(listWallet);
+//		walletRepository.save(listWallet);
+		walletRepository.saveAll(listWallet);
 	}
 
 	

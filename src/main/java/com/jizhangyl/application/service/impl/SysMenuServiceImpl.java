@@ -39,8 +39,8 @@ public class SysMenuServiceImpl implements SysMenuService {
     @Override
     public SysMenuDTO findById(Integer menuId) {
         SysMenuDTO result = new SysMenuDTO();
-        SysMenu menu = sysMenuRepository.findOne(menuId);
-        SysMenu pMenu = sysMenuRepository.findOne(menu.getParentId());
+        SysMenu menu = sysMenuRepository.getOne(menuId);
+        SysMenu pMenu = sysMenuRepository.getOne(menu.getParentId());
         
         BeanUtils.copyProperties(menu, result);
         if (pMenu != null) {
@@ -100,7 +100,7 @@ public class SysMenuServiceImpl implements SysMenuService {
             throw new GlobalException(ResultEnum.PERMS_IS_EXIST.getCode(),
                 String.format(ResultEnum.PERMS_IS_EXIST.getMessage(), sysMenu.getPerms()));
         }
-        SysMenu parentMenu = sysMenuRepository.findOne(sysMenu.getParentId());
+        SysMenu parentMenu = sysMenuRepository.getOne(sysMenu.getParentId());
         if (parentMenu == null) {
             log.info("【新增菜单】上级菜单不存在");
             throw new GlobalException(ResultEnum.UP_MENU_NOT_EXIST);
@@ -129,7 +129,7 @@ public class SysMenuServiceImpl implements SysMenuService {
          * 5. 再删除菜单
          */
         Objects.requireNonNull(menuId, "【删除菜单】菜单id为空");
-        SysMenu sysMenu = sysMenuRepository.findOne(menuId);
+        SysMenu sysMenu = sysMenuRepository.getOne(menuId);
         if (sysMenu == null) {
             log.info("【删除菜单】待删除的菜单不存在");
             throw new GlobalException(ResultEnum.MENU_NOT_EXIST);
@@ -140,7 +140,7 @@ public class SysMenuServiceImpl implements SysMenuService {
             throw new GlobalException(ResultEnum.DOWN_MENU_IS_EXIST);
         }
         
-        sysMenuRepository.delete(menuId);
+        sysMenuRepository.deleteById(menuId);
     }
 
     @Override
@@ -148,7 +148,7 @@ public class SysMenuServiceImpl implements SysMenuService {
         Objects.requireNonNull(sysMenu, "【修改菜单】sysMen为空");
         Objects.requireNonNull(sysMenu.getId(), "【修改菜单】菜单id为空");
         
-        SysMenu menu = sysMenuRepository.findOne(sysMenu.getId());
+        SysMenu menu = sysMenuRepository.getOne(sysMenu.getId());
         
         // (非按钮)修改的菜单名称和它原来的不相等的情况下，不能和其他菜单重名
         if (!sysMenu.getType().equals(MenuEnum.BUTTON.getCode()) && !sysMenu.getName().equals(menu.getName())) {
@@ -168,7 +168,7 @@ public class SysMenuServiceImpl implements SysMenuService {
             }
         }
         
-        SysMenu parentMenu = sysMenuRepository.findOne(sysMenu.getParentId());
+        SysMenu parentMenu = sysMenuRepository.getOne(sysMenu.getParentId());
         if (parentMenu == null) {
             log.info("【修改菜单】上级菜单不存在");
             throw new GlobalException(ResultEnum.UP_MENU_NOT_EXIST);

@@ -31,6 +31,7 @@ public class VerifyCertServiceImpl implements VerifyCertService {
 
     @Override
     public List<VerifyCert> save(List<VerifyCert> verifyCertList) {
-        return verifyCertRepository.save(verifyCertList);
+//        return verifyCertRepository.save(verifyCertList);
+        return verifyCertRepository.saveAll(verifyCertList);
     }
 }

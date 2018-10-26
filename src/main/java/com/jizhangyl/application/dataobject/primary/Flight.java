@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.hibernate.annotations.DynamicUpdate;
@@ -23,7 +24,7 @@ import lombok.Data;
 public class Flight {
 	
 	@Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer flightId;//主键
 
     private Integer packageStatus;//包裹状态

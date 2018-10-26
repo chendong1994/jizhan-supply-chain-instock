@@ -101,7 +101,8 @@ public class OrderMasterServiceImpl implements OrderMasterService {
         if (StringUtils.isEmpty(orderId)) {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        OrderMaster orderMaster = orderMasterRepository.findOne(orderId);
+//        OrderMaster orderMaster = orderMasterRepository.findOne(orderId);
+        OrderMaster orderMaster = orderMasterRepository.getOne(orderId);
         if (orderMaster == null) {
             throw new GlobalException(ResultEnum.ORDER_NOT_EXIST);
         }
@@ -126,7 +127,8 @@ public class OrderMasterServiceImpl implements OrderMasterService {
         if (StringUtils.isEmpty(orderId)) {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        OrderMaster orderMaster = orderMasterRepository.findOne(orderId);
+//        OrderMaster orderMaster = orderMasterRepository.findOne(orderId);
+        OrderMaster orderMaster = orderMasterRepository.getOne(orderId);
         if (orderMaster == null) {
             throw new GlobalException(ResultEnum.ORDER_NOT_EXIST);
         }
@@ -134,7 +136,8 @@ public class OrderMasterServiceImpl implements OrderMasterService {
         List<OrderDetail> orderDetailList = orderDetailRepository.findByOrderId(orderId);
 
         if (!CollectionUtils.isEmpty(orderDetailList)) {
-            orderDetailRepository.delete(orderDetailList);
+//            orderDetailRepository.delete(orderDetailList);
+            orderDetailRepository.deleteAll(orderDetailList);
         }
 
         orderMasterRepository.delete(orderMaster);
@@ -257,7 +260,8 @@ public class OrderMasterServiceImpl implements OrderMasterService {
         }
 
         // 订单详情统一入库
-        orderDetailRepository.save(orderDetailList);
+//        orderDetailRepository.save(orderDetailList);
+        orderDetailRepository.saveAll(orderDetailList);
         // 订单统一扣库存
 
         try {
@@ -642,7 +646,7 @@ public class OrderMasterServiceImpl implements OrderMasterService {
                 orderMaster.setDeliveryTime(new Date());
             }
 
-            orderMasterRepository.save(orderMasterList);
+            orderMasterRepository.saveAll(orderMasterList);
 
         } catch (Exception e) {
             e.printStackTrace();

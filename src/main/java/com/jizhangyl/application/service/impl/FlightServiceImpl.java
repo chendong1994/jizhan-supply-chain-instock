@@ -118,7 +118,7 @@ public class FlightServiceImpl implements FlightService{
 		//航班预定
 		if(flight.getPackageStatus() == PackageStatusEnum.FLIGHT_RESERVATION.getCode()){
 			if(flight.getFlightId() != null){
-				Flight fv = flightRepository.findOne(flight.getFlightId());
+				Flight fv = flightRepository.getOne(flight.getFlightId());
 				if(fv!=null){
 					fv.setVoyage(flight.getVoyage());
 					fv.setFlightGoTime(flight.getFlightGoTime());
@@ -136,7 +136,7 @@ public class FlightServiceImpl implements FlightService{
 						for(FlightPackag flightPackag : lis){
 							flightPackag.setDeliveryNumber(flight.getDeliveryNumber());
 						}
-						flightPackagRepository.save(lis);
+						flightPackagRepository.saveAll(lis);
 					}
 					fv.setDeliveryNumber(flight.getDeliveryNumber());
 					flightRepository.save(fv);
@@ -163,7 +163,7 @@ public class FlightServiceImpl implements FlightService{
 		}
 		//包裹送机
 		if(flight.getPackageStatus() == PackageStatusEnum.PACKAGE_TO_AIRPORT.getCode()){
-			Flight flightp =  flightRepository.findOne(flight.getFlightId());
+			Flight flightp =  flightRepository.getOne(flight.getFlightId());
 			if(flightp == null){
 				throw new GlobalException(ResultEnum.PARAM_EMPTY); 
 			}
@@ -180,7 +180,7 @@ public class FlightServiceImpl implements FlightService{
 		}
 		//收航空费
 		if(flight.getPackageStatus() == PackageStatusEnum.FLIGHT_CHARGE.getCode()){
-			Flight flightp =  flightRepository.findOne(flight.getFlightId());
+			Flight flightp =  flightRepository.getOne(flight.getFlightId());
 			if(flightp == null){
 				throw new GlobalException(ResultEnum.PARAM_EMPTY); 
 			}
@@ -221,7 +221,7 @@ public class FlightServiceImpl implements FlightService{
 		}
 		//航班到港
 		if(flight.getPackageStatus() == PackageStatusEnum.FLIGHT_ARRIVAL.getCode()){
-			Flight flightp =  flightRepository.findOne(flight.getFlightId());
+			Flight flightp =  flightRepository.getOne(flight.getFlightId());
 			if(flightp == null){
 				throw new GlobalException(ResultEnum.PARAM_EMPTY); 
 			}
@@ -234,7 +234,7 @@ public class FlightServiceImpl implements FlightService{
 		}
 		//清关完毕
 		if(flight.getPackageStatus() == PackageStatusEnum.CUSTOMS_CLEARANCE.getCode()){
-			Flight flightp =  flightRepository.findOne(flight.getFlightId());
+			Flight flightp =  flightRepository.getOne(flight.getFlightId());
 			if(flightp == null){
 				throw new GlobalException(ResultEnum.PARAM_EMPTY); 
 			}
@@ -268,7 +268,7 @@ public class FlightServiceImpl implements FlightService{
 	@Transactional
 	public List<String> addFlightPackag(String expressNums,Integer flightId ,Integer packageStatus) {
 		//查询主键是否存在
-		Flight flight = flightRepository.findOne(flightId);
+		Flight flight = flightRepository.getOne(flightId);
 		if(flight == null){
 			throw new GlobalException(ResultEnum.PARAM_EMPTY); 
 		}
@@ -317,7 +317,7 @@ public class FlightServiceImpl implements FlightService{
 			flightPackag.setDeliveryNumber(flight.getDeliveryNumber());
 			listf.add(flightPackag);
 		}
-		flightPackagRepository.save(listf);
+		flightPackagRepository.saveAll(listf);
 
 		//修改航班表包裹数量
 		if(flight.getPackageNumber() != null){
@@ -349,7 +349,7 @@ public class FlightServiceImpl implements FlightService{
 			}
 		}
 		
-		orderMasterRepository.save(orderList);
+		orderMasterRepository.saveAll(orderList);
 		//返回错误信息
 		return listMsg;
 		
@@ -357,7 +357,7 @@ public class FlightServiceImpl implements FlightService{
 
 	@Override
 	public List<FlightPackag> findAllFlightPackag(Integer flightId) {
-		Flight flight = flightRepository.findOne(flightId);
+		Flight flight = flightRepository.getOne(flightId);
 		if(flight == null){
 			throw new GlobalException(ResultEnum.PARAM_EMPTY); 
 		}
@@ -370,7 +370,7 @@ public class FlightServiceImpl implements FlightService{
 	@Override
 	public Map<String,Object> findById(Integer flightId) {
 		Map<String,Object> map = new HashMap<String,Object>();
-		Flight flight = flightRepository.findOne(flightId);
+		Flight flight = flightRepository.getOne(flightId);
 		
 		FlightDetailsDto flightDetailsDto = new FlightDetailsDto();
 		BeanUtils.copyProperties(flight, flightDetailsDto);
@@ -407,7 +407,7 @@ public class FlightServiceImpl implements FlightService{
 			flightImage.setUrl(imageUrl);
 			listImage.add(flightImage);
 		}
-		flightImageRepository.save(listImage);
+		flightImageRepository.saveAll(listImage);
 	}
 
 
