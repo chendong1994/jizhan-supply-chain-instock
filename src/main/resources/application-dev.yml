@@ -17,8 +17,6 @@ wechat:
   notifyUrl: http://jizhangyl.natapp1.cc/jizhangyl/pay/notify
 project-url:
   wechatOpenAuthorize: http://jizhangyl.natapp1.cc
-  #wechatOpenAuthorize: https://www.jizhangyl.com
-  #jizhangyl: http://jizhangyl.natapp1.cc
-  jizhangyl: http://127.0.0.1:8761
+  jizhangyl: http://jizhangyl.natapp1.cc
 server:
   port: 8762

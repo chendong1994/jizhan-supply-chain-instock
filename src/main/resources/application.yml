@@ -49,8 +49,8 @@ logging:
 wechat:
   mpAppId: wx742c20cd02c59c8f
   mpAppSecret: 009e388294b43ebb66e35577f46034ff
-  openAppId: wxa54528c6aebbc825
-  openAppSecret: fba84c6fb55978c2e6993c0d4d6c22c4
+  openAppId: wx9272d49e4f14ffb2
+  openAppSecret: 32b81f9dcf56ba50f7802fc821a41437
   mchId: 1508808661
   mchKey: 4JoJRXXJuPnYpu4jWvDu3dz3pNPdTbbF
   keyPath: classpath:apiclient_cert.p12

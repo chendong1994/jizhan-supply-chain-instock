@@ -5,11 +5,9 @@ import com.jizhangyl.application.constant.RedisConstant;
 import com.jizhangyl.application.exception.AuthorizeException;
 import com.jizhangyl.application.exception.MobileException;
 import com.jizhangyl.application.utils.CookieUtil;
-import com.jizhangyl.application.utils.DevelopPermitUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.filters.RemoteIpFilter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,7 +33,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 @Configuration
-@ConditionalOnProperty(name = "spring.profiles.active", havingValue = "prod")
+//@ConditionalOnProperty(name = "spring.profiles.active", havingValue = "prod")
 public class WebConfiguration {
 
     @Autowired

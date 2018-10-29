@@ -116,6 +116,7 @@ public class WechatUserController {
         // 1. openid 去和数据库里面的数据匹配
         UserInfo userInfo = userInfoService.findByOpenid(openid);
         if (userInfo == null) {
+            // TODO 可能此处导致无限重定向
             return "/common/error"; // 说明用户没有从集栈小程序端进入系统，跳转的页面应提示先进入小程序
 //            throw new AuthorizeException();
         }

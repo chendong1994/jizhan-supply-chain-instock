@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Aspect
 @Component
-@ConditionalOnProperty(name = "spring.profiles.active", havingValue = "prod")
+//@ConditionalOnProperty(name = "spring.profiles.active", havingValue = "prod")
 public class AuthorizeAspect {
 
     @Autowired
@@ -54,6 +54,8 @@ public class AuthorizeAspect {
 //        if (DevelopPermitUtil.access(request)) {
 //            return;
 //        }
+        String uri = request.getRequestURI();
+        log.info("【登录校验】request uri = {}", uri);
 
         String paramToken = request.getParameter(CookieConstant.TOKEN);
         String cookieToken = null;

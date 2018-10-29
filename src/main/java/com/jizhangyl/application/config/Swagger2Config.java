@@ -32,7 +32,7 @@ public class Swagger2Config {
         return new ApiInfoBuilder()
                 .title("集栈供应链 & 飞翩物流 API")
                 .description("集栈供应链 & 飞翩物流 API")
-                .termsOfServiceUrl("http://127.0.0.1:8761/")
+                .termsOfServiceUrl("http://127.0.0.1:8762/")
                 .contact("yangxianda")
                 .version("1.0.0")
                 .build();

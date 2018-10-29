@@ -18,7 +18,7 @@ import java.util.List;
 @ConfigurationProperties(prefix = "login")
 public class LoginConfig {
 
-    @Value("${server.context-path:/}")
+    @Value("${server.servlet.context-path}")
     private String contextPath;
 
     private String excludePrefix;

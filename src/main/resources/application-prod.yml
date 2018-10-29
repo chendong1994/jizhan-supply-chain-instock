@@ -11,14 +11,14 @@ spring:
       password: jizhangyl1!
       url: jdbc:mysql://rm-bp1lut9l7144s2l73xo.mysql.rds.aliyuncs.com:3306/jzgyl?useUnicode=true&useSSL=false&autoReconnect=true
   redis:
-    host: 39.104.90.26
+    host: 127.0.0.1
     port: 6379
-    password: Jizhangyl1qaz@WSX
+    password: 1qaz@WSX
 wechat:
-  notifyUrl: http://www.jizhangyl.com/jizhangyl/pay/notify
+  notifyUrl: https://actuals.jizhangyl.com/jizhangyl/pay/notify
 project-url:
-  wechatOpenAuthorize: https://www.jizhangyl.com
-  jizhangyl: https://www.jizhangyl.com
+  wechatOpenAuthorize: https://actuals.jizhangyl.com
+  jizhangyl: https://actuals.jizhangyl.com
 server:
   port: 80
   ssl:
