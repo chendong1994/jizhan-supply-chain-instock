@@ -2,7 +2,7 @@ package com.jizhangyl.application.form;
 
 import com.jizhangyl.application.validator.IsMobile;
 import lombok.Data;
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.NotEmpty;
 
 import javax.validation.constraints.Pattern;
 

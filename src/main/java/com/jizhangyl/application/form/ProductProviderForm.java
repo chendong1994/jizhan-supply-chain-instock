@@ -1,7 +1,7 @@
 package com.jizhangyl.application.form;
 
 import lombok.Data;
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;

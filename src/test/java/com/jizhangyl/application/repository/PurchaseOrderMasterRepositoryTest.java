@@ -28,7 +28,7 @@ public class PurchaseOrderMasterRepositoryTest extends MainApplicationTests {
     @Test
     public void findByCriteria() {
         List<Integer> orderStatusList = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7);
-        PageRequest pageRequest = new PageRequest(0, 5);
+        PageRequest pageRequest = PageRequest.of(0, 5);
         Page<PurchaseOrderMaster> result = purchaseOrderMasterRepository.findByCriteria("", orderStatusList, pageRequest);
         log.info("content = {}", result.getContent());
         log.info("totalPages = {}", result.getTotalPages());

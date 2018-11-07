@@ -71,7 +71,7 @@ public class FlightServiceImpl implements FlightService{
 	@Override
 	public List<FlightUnfinishedDto> findAllUnfinished() {
 		List<FlightUnfinishedDto> list = new ArrayList<FlightUnfinishedDto>();
-		Pageable pageRequest = new PageRequest(0, 100);
+		Pageable pageRequest = PageRequest.of(0, 100);
 		Page<Flight> pg= flightRepository.findByStatus(2, pageRequest);
 		if(CollectionUtils.isNotEmpty(pg.getContent())){
 			for(Flight vv : pg.getContent()){

@@ -48,7 +48,7 @@ public class SysUserController {
                          @RequestParam(value = "size", defaultValue = "20") Integer size) {
 
         Sort sort = new Sort(Sort.Direction.DESC, "createTime");
-        PageRequest pageRequest = new PageRequest(page - 1, size, sort);
+        PageRequest pageRequest = PageRequest.of(page - 1, size, sort);
         Page<UserInfo> pageList = userInfoService.list(pageRequest);
 
         Map<String, Object> resultMap = new HashMap<>();

@@ -417,7 +417,7 @@ public class OrderMasterServiceImpl implements OrderMasterService {
                 orderStatusList.add(orderStatus);
             }
 
-            PageRequest pageRequest = new PageRequest(page - 1, size);
+            PageRequest pageRequest = PageRequest.of(page - 1, size);
             Page<OrderMaster> orderMasterPage = orderMasterRepository.findByBuyerOpenidAndOrderStatusInOrderByCreateTimeDesc(openid,
                     orderStatusList, pageRequest);
 

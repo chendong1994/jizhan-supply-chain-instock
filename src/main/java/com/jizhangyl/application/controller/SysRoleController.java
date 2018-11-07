@@ -50,7 +50,7 @@ public class SysRoleController {
     public ResultVO list(@RequestParam(value = "page", defaultValue = "1") Integer page,
                          @RequestParam(value = "size", defaultValue = "20") Integer size) {
 
-        PageRequest pageRequest = new PageRequest(page - 1, size);
+        PageRequest pageRequest = PageRequest.of(page - 1, size);
 
         Page<SysRole> roleList = sysRoleService.findAll(pageRequest);
 

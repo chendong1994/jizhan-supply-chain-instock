@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.jizhangyl</groupId>
-    <artifactId>jizhan-supply-chain-actuals</artifactId>
+    <artifactId>jizhan-supply-chain-instock</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>jizhan-supply-chain-actuals</name>
-    <description>jizhan-supply-chain-actuals</description>
+    <name>jizhan-supply-chain-instock</name>
+    <description>jizhan-supply-chain-instock</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

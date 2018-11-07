@@ -49,7 +49,7 @@ public class WxuserAddrRepositoryTest extends MainApplicationTests {
 
     @Test
     public void findAllByOpenid() {
-        PageRequest request = new PageRequest(0, 5);
+        PageRequest request = PageRequest.of(0, 5);
         Page<WxuserAddr> wxuserAddrPage = repository.findAllByOpenid("111111", request);
         Assert.assertNotEquals(0, wxuserAddrPage.getTotalElements());
 

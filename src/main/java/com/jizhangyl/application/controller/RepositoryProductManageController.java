@@ -77,7 +77,7 @@ public class RepositoryProductManageController {
     public ResultVO list(@RequestParam(value = "page", defaultValue = "1") Integer page,
                          @RequestParam(value = "size", defaultValue = "20") Integer size) {
 
-        PageRequest pageRequest = new PageRequest(page - 1, size);
+        PageRequest pageRequest = PageRequest.of(page - 1, size);
 
         Page<RepositoryProduct> repositoryProductPage = repositoryProductService.findAll(pageRequest);
 
@@ -167,7 +167,7 @@ public class RepositoryProductManageController {
         Date endTime = formatDate.get("endTime");
         // 分页参数
         Sort sort = new Sort(Sort.Direction.DESC, "createTime");
-        PageRequest pageRequest = new PageRequest(page - 1, size, sort);
+        PageRequest pageRequest = PageRequest.of(page - 1, size, sort);
 
         /**
          * 采购订单入库（purchase_order_master）
@@ -220,7 +220,7 @@ public class RepositoryProductManageController {
 
         //分页参数
         Sort sort = new Sort(Sort.Direction.DESC, "createTime");
-        PageRequest pageRequest = new PageRequest(page - 1, size, sort);
+        PageRequest pageRequest = PageRequest.of(page - 1, size, sort);
 
         /**
          * 订单发货（repository_delivery）
@@ -274,7 +274,7 @@ public class RepositoryProductManageController {
             param = "";
         }
 
-        PageRequest pageRequest = new PageRequest(page - 1, size);
+        PageRequest pageRequest = PageRequest.of(page - 1, size);
 
         Page<RepositoryProduct> repositoryProductPage = repositoryProductService.findByCriteria(param, status, pageRequest);
 

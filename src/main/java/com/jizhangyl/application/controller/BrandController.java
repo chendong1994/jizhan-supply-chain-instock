@@ -51,7 +51,7 @@ public class BrandController {
     @GetMapping("/list")
     public ResultVO list(@RequestParam(value = "page", defaultValue = "1") Integer page,
                          @RequestParam(value = "size", defaultValue = "10") Integer size) {
-        PageRequest pageRequest = new PageRequest(page - 1, size);
+        PageRequest pageRequest = PageRequest.of(page - 1, size);
         Page<Brand> brandPage = brandService.findAll(pageRequest);
 
         Map<String, Object> map = new HashMap<>();

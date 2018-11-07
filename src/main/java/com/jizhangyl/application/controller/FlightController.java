@@ -226,7 +226,7 @@ public class FlightController {
 			                            @RequestParam(value = "size", defaultValue = "10", required = false) Integer size
 			                            ){
 		
-		PageRequest pageRequest = new PageRequest(page - 1, size);
+		PageRequest pageRequest = PageRequest.of(page - 1, size);
 		Page<FlightDto> pg = flightService.findAll( pageRequest);
 		Map<String, Object> result = new HashMap<>();
         result.put("list1", pg.getContent());

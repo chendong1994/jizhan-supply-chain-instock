@@ -3,9 +3,8 @@ package com.jizhangyl.application.form;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 import lombok.Data;
 

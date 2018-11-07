@@ -81,7 +81,7 @@ public class ShopController {
     @GetMapping("/list")
     public ResultVO list(@RequestParam(value = "page", defaultValue = "1", required = false) Integer page,
                          @RequestParam(value = "size", defaultValue = "10", required = false) Integer size) {
-        PageRequest pageRequest = new PageRequest(page - 1, size);
+        PageRequest pageRequest = PageRequest.of(page - 1, size);
         // 1. 查询所有上架商品
         Page<Shop> shopPage = shopService.findAll(pageRequest);
         List<Shop> shopList = shopPage.getContent();
@@ -141,7 +141,7 @@ public class ShopController {
         if (cateId == null) {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        PageRequest pageRequest = new PageRequest(page - 1, size);
+        PageRequest pageRequest = PageRequest.of(page - 1, size);
         Page<ShopVO> shopVOPage = shopService.findByCateId(cateId, pageRequest);
 
         Map<String, Object> result = new HashMap<>();
@@ -187,7 +187,7 @@ public class ShopController {
 //    @Cacheable(cacheNames = "product", key = "123")
     public ResultVO findUp(@RequestParam(value = "page", defaultValue = "1", required = false) Integer page,
                            @RequestParam(value = "size", defaultValue = "10", required = false) Integer size) {
-        PageRequest pageRequest = new PageRequest(page - 1, size);
+        PageRequest pageRequest = PageRequest.of(page - 1, size);
         Page<Shop> shopPage = shopService.findUp(pageRequest);
 
         List<ShopVO> shopVOList = shopPage.getContent().stream().map(e -> {

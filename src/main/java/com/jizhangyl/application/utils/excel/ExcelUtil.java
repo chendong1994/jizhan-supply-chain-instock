@@ -176,7 +176,7 @@ public class ExcelUtil<T> {
                 Excel attr = field.getAnnotation(Excel.class);
                 int col = getExcelCol(attr.column());// 获得列号
                 cell = row.createCell(col);// 创建列
-                cell.setCellType(HSSFCell.CELL_TYPE_STRING);// 设置列中写入内容为String类型
+                cell.setCellType(CellType.STRING);// 设置列中写入内容为String类型
                 cell.setCellValue(attr.name());// 写入列名
                 cell.setCellStyle(headerStyle);
 
@@ -208,7 +208,7 @@ public class ExcelUtil<T> {
                         // 根据ExcelVOAttribute中设置情况决定是否导出,有些情况需要保持为空,希望用户填写这一列.
                         if (attr.isExport()) {
                             cell = row.createCell(getExcelCol(attr.column()));// 创建cell
-                            cell.setCellType(HSSFCell.CELL_TYPE_STRING);
+                            cell.setCellType(CellType.STRING);
                             cell.setCellValue(field.get(vo) == null ? ""
                                     : String.valueOf(field.get(vo)));// 如果数据存在就填入,不存在填入空格.
                         }

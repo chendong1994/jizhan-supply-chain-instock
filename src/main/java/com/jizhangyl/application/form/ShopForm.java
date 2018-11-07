@@ -2,7 +2,7 @@ package com.jizhangyl.application.form;
 
 import com.jizhangyl.application.validator.IsPaoGoods;
 import lombok.Data;
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;

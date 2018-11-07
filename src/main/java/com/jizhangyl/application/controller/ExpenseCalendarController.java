@@ -71,7 +71,7 @@ public class ExpenseCalendarController {
                                   @RequestParam(value = "userName") String userName,
                                   @RequestParam(value = "monthTime") String monthTime){
 		Page<ExpenseCalendar> expenseCalendarPage = null;
-		PageRequest pageRequest = new PageRequest(page - 1, size);
+		PageRequest pageRequest = PageRequest.of(page - 1, size);
 		if(StringUtils.isBlank(monthTime)){
 			expenseCalendarPage = expenseCalendarService.findByAllNow(userName, userName, pageRequest);
 		}else{
@@ -103,7 +103,7 @@ public class ExpenseCalendarController {
 						            @RequestParam("expenseCalendarId")Integer expenseCalendarId,
 						            @RequestParam("openid")String openid){
 		Map<String,Object> map = new HashMap<String,Object>();
-		PageRequest pageRequest = new PageRequest(page - 1, size);
+		PageRequest pageRequest = PageRequest.of(page - 1, size);
 		if(expenseCalendarId != null){
 			map = expenseCalendarService.detailsByExpenseCalendarId(expenseCalendarId,pageRequest);
 		}else{

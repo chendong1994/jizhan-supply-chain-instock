@@ -139,7 +139,7 @@ public class PurchaseOrderController {
     public ResultVO list(@RequestParam(value = "page", defaultValue = "1") Integer page,
                          @RequestParam(value = "size", defaultValue = "10") Integer size) {
         Sort sort = new Sort(Sort.Direction.DESC, "createTime");
-        PageRequest pageRequest = new PageRequest(page - 1, size, sort);
+        PageRequest pageRequest = PageRequest.of(page - 1, size, sort);
         Page<PurchaseOrderMaster> purchaseOrderMasterPage = purchaseOrderService.findAll(pageRequest);
 
         Map<String, Object> map = new HashMap<>();
@@ -161,7 +161,7 @@ public class PurchaseOrderController {
             result.put("totalPage", 1);
         } else if (!StringUtils.isEmpty(providerName)) {
             // 按照供应商名字模糊查询
-            PageRequest pageRequest = new PageRequest(page - 1, size);
+            PageRequest pageRequest = PageRequest.of(page - 1, size);
             Page<PurchaseOrderMaster> purchaseOrderMasterPage = purchaseOrderService.findByroviderName(providerName, pageRequest);
             result.put("data", purchaseOrderMasterPage.getContent());
             result.put("totalPage", purchaseOrderMasterPage.getTotalPages());
@@ -252,7 +252,7 @@ public class PurchaseOrderController {
         if (StringUtils.isEmpty(orderId)) {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        PageRequest pageRequest = new PageRequest(page - 1, size);
+        PageRequest pageRequest = PageRequest.of(page - 1, size);
         Page<PurchaseOrderDetail> purchaseOrderDetailPage = purchaseOrderService.findOrderById(orderId, pageRequest);
 
         Map<String, Object> result = new HashMap<>();
@@ -617,7 +617,7 @@ public class PurchaseOrderController {
 
         Sort sort = new Sort(Sort.Direction.DESC, "create_time");
 
-        PageRequest pageRequest = new PageRequest(page - 1, size, sort);
+        PageRequest pageRequest = PageRequest.of(page - 1, size, sort);
 
         Page<PurchaseOrderMaster> purchaseOrderMasterPage = purchaseOrderService.findByCriteria(criteria, orderStatusList, pageRequest);
 
