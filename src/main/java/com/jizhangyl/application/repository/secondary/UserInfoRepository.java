@@ -11,6 +11,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface UserInfoRepository extends JpaRepository<UserInfo, Integer> {
     
     UserInfo findByOpenid(String openid);
+
+    UserInfo findByUnionid(String unionid);
     
     UserInfo findByEmpNo(String empNo);
 }

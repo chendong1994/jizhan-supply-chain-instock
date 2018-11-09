@@ -2,9 +2,9 @@ spring:
   datasource:
     primary:
       driver-class-name: com.mysql.jdbc.Driver
-      username: admin
-      password: 123456
-      url: jdbc:mysql://127.0.0.1:3306/jizhangyl_actuals?useUnicode=true&useSSL=false&autoReconnect=true
+      username: root
+      password: yxdyxd123456@
+      url: jdbc:mysql://127.0.0.1:3306/jizhangyl_instock?useUnicode=true&useSSL=false&autoReconnect=true
     secondary:
       driver-class-name: com.mysql.jdbc.Driver
       username: admin

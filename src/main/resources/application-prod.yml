@@ -4,7 +4,7 @@ spring:
       driver-class-name: com.mysql.jdbc.Driver
       username: root
       password: jizhangyl1!
-      url: jdbc:mysql://rm-bp1lut9l7144s2l73xo.mysql.rds.aliyuncs.com:3306/jizhangyl_actuals?useUnicode=true&useSSL=false&autoReconnect=true
+      url: jdbc:mysql://rm-bp1lut9l7144s2l73xo.mysql.rds.aliyuncs.com:3306/jizhangyl_instock?useUnicode=true&useSSL=false&autoReconnect=true
     secondary:
       driver-class-name: com.mysql.jdbc.Driver
       username: root

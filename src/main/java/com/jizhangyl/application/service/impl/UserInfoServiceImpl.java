@@ -57,6 +57,11 @@ public class UserInfoServiceImpl implements UserInfoService {
     private SysRoleMenuRepository sysRoleMenuRepository;
 
     @Override
+    public UserInfo findByUnionid(String unionid) {
+        return userInfoRepository.findByUnionid(unionid);
+    }
+
+    @Override
     public UserInfo findByOpenid(String openid) {
         return userInfoRepository.findByOpenid(openid);
     }
