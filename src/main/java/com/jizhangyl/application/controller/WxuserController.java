@@ -45,11 +45,11 @@ public class WxuserController {
     }
 
     @GetMapping("/getInviteCode")
-    public ResultVO getInviteCode(@RequestParam("openid") String openid) {
-        if (StringUtils.isEmpty(openid)) {
+    public ResultVO getInviteCode(@RequestParam("unionId") String unionId) {
+        if (StringUtils.isEmpty(unionId)) {
             throw new GlobalException(ResultEnum.PARAM_EMPTY);
         }
-        Wxuser wxuser = wxuserService.findByOpenId(openid);
+        Wxuser wxuser = wxuserService.findByUnionId(unionId);
 
         String inviteCode = null;
         if (wxuser != null) {

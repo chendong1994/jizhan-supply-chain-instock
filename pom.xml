@@ -219,7 +219,21 @@
 		     <artifactId>shiro-redis</artifactId>
 		     <version>2.4.2.1-RELEASE</version>
 		</dependency>
+
+        <!--ZTO-->
+        <dependency>
+            <groupId>com.zto.zop</groupId>
+            <artifactId>zopsdk</artifactId>
+            <version>0.4</version>
+        </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>zto-maven</id>
+            <url>https://dl.bintray.com/chocotan/maven</url>
+        </repository>
+    </repositories>
 
     <build>
         <finalName>${project.artifactId}</finalName>
