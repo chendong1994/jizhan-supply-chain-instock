@@ -29,4 +29,14 @@ public enum  OrderStatusEnum implements CodeEnum {
         this.code = code;
         this.msg = msg;
     }
+    
+    // 将状态码转换成对应的字符串
+    public static String transStr(Integer status) {
+        for (OrderStatusEnum enums : OrderStatusEnum.values()) {
+           if (enums.getCode().equals(status)) {
+               return enums.getMsg();
+           }
+        }
+        return "没有这种状态:status" + status;
+    }
 }

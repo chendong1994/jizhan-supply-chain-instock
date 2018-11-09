@@ -32,14 +32,16 @@ import com.jizhangyl.application.VO.ResultVO;
 import com.jizhangyl.application.constant.CookieConstant;
 import com.jizhangyl.application.constant.RedisConstant;
 import com.jizhangyl.application.converter.OrderForm2OrderDto;
+import com.jizhangyl.application.converter.OrderMaster2InstockOrderDTOConverter;
 import com.jizhangyl.application.converter.OrderMaster2OrderForRepositoryConverter;
 import com.jizhangyl.application.dataobject.primary.BuyerInfo;
 import com.jizhangyl.application.dataobject.primary.NotifyLog;
 import com.jizhangyl.application.dataobject.primary.OrderDetail;
 import com.jizhangyl.application.dataobject.primary.OrderForRepository;
 import com.jizhangyl.application.dataobject.primary.OrderMaster;
-import com.jizhangyl.application.dataobject.secondary.Wxuser;
 import com.jizhangyl.application.dataobject.primary.WxuserAddr;
+import com.jizhangyl.application.dataobject.secondary.Wxuser;
+import com.jizhangyl.application.dto.InstockOrderDTO;
 import com.jizhangyl.application.dto.OrderDto;
 import com.jizhangyl.application.dto.QueryOrderDetailReceiverDTO;
 import com.jizhangyl.application.dto.QueryOrderDetailShopDTO;
@@ -117,6 +119,9 @@ public class OrderController {
     @Autowired
     private NotifyLogService notifyLogService;
 
+    @Autowired
+    private OrderMaster2InstockOrderDTOConverter orderMaster2InstockOrderDTOConverter;
+    
     @PostMapping("/create")
     public ResultVO create(@Valid OrderForm orderForm,
                          BindingResult bindingResult) {
@@ -519,5 +524,26 @@ public class OrderController {
         orderDto.setOrderDetailList(orderDetailList);
 
         return ResultVOUtil.success(orderDto);
+    }
+    
+    /**
+     * 导出现货的订单(待发货)
+     * @return
+     */
+    @GetMapping("/exportInstockOrder")
+    public ResponseEntity<byte[]> exportInstockOrder() {
+        // 只导出待发货的订单
+        Integer orderStatus = OrderStatusEnum.PAID.getCode();
+        
+        try {
+            List<OrderMaster> orderMasterList = orderService.findByOrderStatus(orderStatus);
+
+            List<InstockOrderDTO> instockOrderDTOList = orderMaster2InstockOrderDTOConverter.convert(orderMasterList);
+
+            return exportService.exportInstockOrder(instockOrderDTOList);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new GlobalException(ResultEnum.EXCEL_EXPORT_ERROR);
+        }
     }
 }

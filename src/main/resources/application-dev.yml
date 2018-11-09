@@ -16,7 +16,7 @@ spring:
 wechat:
   notifyUrl: http://jizhangyl.natapp1.cc/jizhangyl/pay/notify
 project-url:
-  wechatOpenAuthorize: http://jizhangyl.natapp1.cc
-  jizhangyl: http://jizhangyl.natapp1.cc
+  wechatOpenAuthorize: http://127.0.0.1
+  jizhangyl: http://127.0.0.1
 server:
   port: 8762
