@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import com.jizhangyl.application.dataobject.primary.OrderForRepository;
 import com.jizhangyl.application.dto.AllDataDTO;
 import com.jizhangyl.application.dto.BuyerSalesDTO;
+import com.jizhangyl.application.dto.InstockOrderDTO;
 import com.jizhangyl.application.dto.ShopSalesDTO;
 
 /**
@@ -56,4 +57,11 @@ public interface ExportService {
 	 * @return excel文件
 	 */
 	public ResponseEntity<byte[]> exportOrder(List<OrderForRepository> orderForRepositoryList, Date startTime, Date endTime);
+	
+	/**
+	 * 导出现货订单
+	 * @param instockOrderDTOList
+	 * @return
+	 */
+	public ResponseEntity<byte[]> exportInstockOrder(List<InstockOrderDTO> instockOrderDTOList);
 }
