@@ -93,7 +93,7 @@ public class ExpenseCalendarController {
 	
 	/**
 	 * 查询当月返点详情
-	 * @param openid
+	 * @param unionId
 	 * @return
 	 */
 	@GetMapping("/details")
@@ -101,13 +101,14 @@ public class ExpenseCalendarController {
 	public ResultVO detailsByOpenid(@RequestParam(value = "page", defaultValue = "1", required = false) Integer page,
 						            @RequestParam(value = "size", defaultValue = "10", required = false) Integer size,
 						            @RequestParam("expenseCalendarId")Integer expenseCalendarId,
-						            @RequestParam("openid")String openid){
+						            @RequestParam("unionId")String unionId){
 		Map<String,Object> map = new HashMap<String,Object>();
 		PageRequest pageRequest = PageRequest.of(page - 1, size);
 		if(expenseCalendarId != null){
 			map = expenseCalendarService.detailsByExpenseCalendarId(expenseCalendarId,pageRequest);
 		}else{
-			map = expenseCalendarService.detailsByOpenid(openid,pageRequest);
+//			map = expenseCalendarService.detailsByOpenid(openid,pageRequest);
+			map = expenseCalendarService.detailsByOpenid(unionId, pageRequest);
 		}
 		
 		return ResultVOUtil.success(map);

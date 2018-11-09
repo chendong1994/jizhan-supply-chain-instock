@@ -1059,10 +1059,131 @@ public class ExpenseCalendarServiceImpl implements ExpenseCalendarService {
 		
 		return list;
 	}
-	
 
-	
-	
-	
 
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public Map<String, Object> detailsByUnionId(String unionId,PageRequest pageRequest) {
+		Map<String, Object> map = new HashMap<String,Object>();
+		List<ExpenseCalendarDto> list = new ArrayList<ExpenseCalendarDto>();
+		// 1.查询用户信息
+		Wxuser wu = wxuserRepository.findByUnionId(unionId);
+		if(wu == null){
+			throw new GlobalException(ResultEnum.USER_NOT_EXIST);
+		}
+
+		Interests interests = interestsRepository.findByUserGrade(wu.getUserGrade());//分销比例
+		int wpn = 0;//间接下游人员数量
+		BigDecimal wallAmot = BigDecimal.ZERO;//间接下游用户总金额
+
+		//下游等级不为0的用户
+		List<Wxuser> listwpage = wxuserRepository.findByParentInviteCodeAndUserGradeNotAndCreateTimeBetween(wu.getInviteCode(),UserGardeEnum.ZERO.getCode(),
+				DateUtil.getSupportBeginDayofMonth(-1200), new Date());
+		if (listwpage != null && listwpage.size()>0) {
+
+			List<String> buyerOpenids = new ArrayList<>();
+			for (Wxuser wxuser : listwpage) {
+				buyerOpenids.add(wxuser.getOpenId());
+			}
+
+			List<OrderMasterExpense> listOM = orderMasterExpenseRepository.findByBuyerOpenidInAndOrderStatusAndUpdateTimeBetween(
+					buyerOpenids, OrderStatusEnum.RECEIVED.getCode(), DateUtil.getSupportBeginDayofMonth(0),
+					new Date());
+			if (listOM != null && !listOM.isEmpty()) {
+				for(Wxuser wxuser : listwpage){
+					BigDecimal amountAll = BigDecimal.ZERO;//下游用户金额
+					for (OrderMasterExpense om : listOM) {
+						if(wxuser.getOpenId().equals(om.getBuyerOpenid())){
+							amountAll = amountAll.add(om.getOrderCost());
+						}
+					}
+
+					ExpenseCalendarDto expenseCalendarDto = new ExpenseCalendarDto();
+					expenseCalendarDto.setUserName(wxuser.getNickName());
+					expenseCalendarDto.setUrl(wxuser.getAvatarUrl());
+					expenseCalendarDto.setUserGrade(wxuser.getUserGrade());
+					expenseCalendarDto.setInviteCode(wxuser.getInviteCode());
+					expenseCalendarDto.setExpenseSum(amountAll);
+					expenseCalendarDto.setSum(amountAll.multiply(interests.getSalesDistribution()).setScale(2, BigDecimal.ROUND_HALF_UP));
+					list.add(expenseCalendarDto);
+				}
+			}
+		}
+		//下游用户等级为0的用户
+		List<Wxuser> listuser0 = wxuserRepository.findByParentInviteCodeAndUserGradeAndCreateTimeBetween(wu.getInviteCode(),UserGardeEnum.ZERO.getCode(),
+				DateUtil.getSupportBeginDayofMonth(-1200), new Date());
+		if (listuser0 != null && listuser0.size()>0) {
+			for(Wxuser wxuser : listuser0){
+				ExpenseCalendarDto expenseCalendarDto = new ExpenseCalendarDto();
+				expenseCalendarDto.setUserName(wxuser.getNickName());
+				expenseCalendarDto.setUrl(wxuser.getAvatarUrl());
+				expenseCalendarDto.setUserGrade(wxuser.getUserGrade());
+				expenseCalendarDto.setInviteCode(wxuser.getInviteCode());
+				expenseCalendarDto.setExpenseSum(BigDecimal.ZERO);
+				expenseCalendarDto.setSum(BigDecimal.ZERO);
+				list.add(expenseCalendarDto);
+			}
+		}
+
+
+
+		//根据消费金额排序
+		Collections.sort(list,new Comparator () {
+			@Override
+			public int compare(Object o1, Object o2) {
+				ExpenseCalendarDto e1 = (ExpenseCalendarDto) o1;
+				ExpenseCalendarDto e2 = (ExpenseCalendarDto) o2;
+				return e2.getSum().compareTo(e1.getSum());
+			}
+		});
+		int totalPages = 0;
+		if((list.size()%pageRequest.getPageSize()) > 0){
+			totalPages = list.size()/pageRequest.getPageSize()+1;
+		}else{
+			totalPages = list.size()/pageRequest.getPageSize();
+		}
+		List<ExpenseCalendarDto> listend = new ArrayList<>();
+		if(list.size()>0){
+			if(pageRequest.getPageNumber()*pageRequest.getPageSize() < list.size()){
+				if((pageRequest.getPageNumber()+1)*pageRequest.getPageSize() < list.size()){
+					listend = list.subList(pageRequest.getPageNumber()*pageRequest.getPageSize(), (pageRequest.getPageNumber()+1)*pageRequest.getPageSize());
+				}else{
+					listend = list.subList(pageRequest.getPageNumber()*pageRequest.getPageSize(), list.size());
+				}
+			}
+		}
+
+		// 2.计算用户下游返点信息
+		List<Wxuser> listw = wxuserRepository.findByParentInviteCodeAndUserGradeNotAndCreateTimeBetween(wu.getInviteCode(),UserGardeEnum.ZERO.getCode(),
+				DateUtil.getSupportBeginDayofMonth(-1200), new Date());
+		if (listw != null && listw.size() > 0) {
+			List<String> buyerOpenidList = new ArrayList<String>();
+			for (Wxuser wxuser : listw) {
+				buyerOpenidList.add(wxuser.getOpenId());
+			}
+			// 3.遍历间接下游的用户
+			List<Wxuser> listw2 = wxuserRepository.findByParentInviteCodeInAndUserGradeNotAndCreateTimeBetween(buyerOpenidList, UserGardeEnum.ZERO.getCode(),DateUtil.getSupportBeginDayofMonth(-1200), new Date());
+			if(listw2 != null && listw2.size()>0){
+				wpn =  listw2.size();
+				List<String> listv = new ArrayList<String>();
+				for (Wxuser wxuser2 : listw2) {
+					listv.add(wxuser2.getOpenId());
+				}
+				List<OrderMasterExpense> listOM2 = orderMasterExpenseRepository.findByBuyerOpenidInAndOrderStatusAndUpdateTimeBetween(listv,
+						OrderStatusEnum.RECEIVED.getCode(), DateUtil.getSupportBeginDayofMonth(0),new Date());
+				if (listOM2 != null && !listOM2.isEmpty()) {
+					for (OrderMasterExpense om : listOM2) {
+						wallAmot = wallAmot.add(om.getOrderCost());
+					}
+				}
+			}
+		}
+		map.put("list", listend);
+		map.put("wpn", wpn);
+		map.put("wallAmot", wallAmot);
+		map.put("totalPages", totalPages);
+		map.put("totalNum", list.size());
+		return map;
+	}
 }

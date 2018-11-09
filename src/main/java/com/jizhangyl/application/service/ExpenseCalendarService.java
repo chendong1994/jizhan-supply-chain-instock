@@ -106,7 +106,15 @@ public interface ExpenseCalendarService {
 	 * @return
 	 */
 	Map<String,Object> detailsByOpenid(String openid,PageRequest pageRequest);
-	
+
+
+	/**
+	 * 查询当月用户实时下游返点详情
+	 * @param unionId
+	 * @return
+	 */
+	Map<String,Object> detailsByUnionId(String unionId,PageRequest pageRequest);
+
 	/**
 	 * 根据主键查询某月下游用户的返点情况
 	 * @return

@@ -75,9 +75,10 @@ public class WxuserServiceImpl implements WxuserService {
         if (obj == null) {
             throw new GlobalException(ResultEnum.WECHAT_ERROR);
         }
+
         String openid = (String) obj.get("openId");
-        
         String unionId = (String) obj.get("unionId");
+
         if (unionId != null) {
             log.info("【$$$$$$$$$$$$$$$$$】");
             log.info("【$$$$$$$$$$$$$$$$$】");
@@ -92,7 +93,7 @@ public class WxuserServiceImpl implements WxuserService {
             log.info("【$$$$$$$$$$$$$$$$$】");
         }
         
-        Wxuser wxuser = wxuserRepository.findByOpenId(openid);
+        Wxuser wxuser = wxuserRepository.findByUnionId(unionId);
         if (wxuser != null) {
             if (StringUtils.isEmpty(wxuser.getUnionId())) { // 更新一下该用户的unionId
                 wxuser.setUnionId(unionId);
