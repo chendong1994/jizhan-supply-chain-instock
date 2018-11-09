@@ -17,6 +17,8 @@ import com.jizhangyl.application.dto.UserInfoDTO;
  */
 public interface UserInfoService {
 
+    UserInfo findByUnionid(String unionid);
+
     UserInfo findByOpenid(String openid);
 
     /**

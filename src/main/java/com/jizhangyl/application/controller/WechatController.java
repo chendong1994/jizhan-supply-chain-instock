@@ -86,7 +86,8 @@ public class WechatController {
         }
         log.info("wxMpOAuth2AccessToken = {}", wxMpOAuth2AccessToken);
         String openId = wxMpOAuth2AccessToken.getOpenId();
-
+        
+        
         String unionId = wxMpOAuth2AccessToken.getUnionId(); // 后续将替换成使用unionId来进行登录
         log.info("【$$$$$$$$$$$$$$$$$】");
         log.info("【$$$$$$$$$$$$$$$$$】");
@@ -94,7 +95,7 @@ public class WechatController {
         log.info("【$$$$$$$$$$$$$$$$$】");
         log.info("【$$$$$$$$$$$$$$$$$】");
         
-        return "redirect:" + returnUrl + "?openid=" + openId;
+        return "redirect:" + returnUrl + "?unionid=" + unionId;
     }
 
     /**

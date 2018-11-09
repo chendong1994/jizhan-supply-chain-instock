@@ -22,7 +22,7 @@ public interface WxuserService {
 
     WechatUserStatusEnum isExist(JSONObject obj);
 
-    Boolean checkInviteCode(String code, String openid);
+    Boolean checkInviteCode(String code, String unionid);
 
     Wxuser findByInviteCode(String inviteCode);
 
